@@ -14,8 +14,7 @@ namespace Base{
     enum mouseStats : std::size_t{
         mousePointing,
         mouseHolding,
-        mouseIdle,
-        mouseNan
+        mouseIdle
     };
 
     enum buttonNames : std::size_t{

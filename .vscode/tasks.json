@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "SDL2",
+            "command": "D:/Tools/Msys64/ucrt64/bin/g++.exe",
+            "args": [
+                "-std=c++20",
+                "-g",
+                "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}/src/Core/*.cpp",
+                "${workspaceFolder}/src/ECS/*.cpp",
+                "${workspaceFolder}/src/State/*.cpp",
+                "${workspaceFolder}/src/UI/*.cpp",
+                "-o",
+                "MyAdventure.exe",
+                "-ID:/Tools/libraries/SDL2/x86_64-w64-mingw32/include",
+                "-I${workspaceFolder}/libraries/",
+                "-I${workspaceFolder}/header/",
+                "-LD:/Tools/libraries/SDL2/x86_64-w64-mingw32/lib",
+                "-lmingw32",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-lSDL2_mixer",
+                "-lSDL2_ttf",
+                "-lstdc++fs"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}

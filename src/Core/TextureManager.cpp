@@ -16,6 +16,19 @@ SDL_Texture* TextureManager::load_texture(const char* f_path){
 }
 
 /**
+ * Load texture from given surface
+ * \param surface the surface to load an image from.
+*/
+SDL_Texture* TextureManager::load_texture(SDL_Surface* surface){
+    SDL_Texture* texture = NULL;
+    texture = SDL_CreateTextureFromSurface(Game::renderer, surface);
+    if (texture == NULL){
+        std::cout << "Failed to load texture from given surface !SDL_image Error: " << IMG_GetError() << '\n';
+    }
+    return texture;
+}
+
+/**
  * Draw texture to the game renderer
  * \param texture the source texture
 */

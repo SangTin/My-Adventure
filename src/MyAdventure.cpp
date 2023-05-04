@@ -1,5 +1,8 @@
+#include <iostream>
 #include <Core/Base.hpp>
 #include <Core/Game.hpp>
+#include <Core/GameTimer.hpp>
+#include <Core/Vector2D.hpp>
 
 const int FPS = 144;
 const int FPSTime = 1000.0 / FPS;
@@ -23,6 +26,11 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
+    if (TTF_Init() < 0){
+        std::cout << "SDL_ttf could not initialize! SDL_ttf Error: " << TTF_GetError() << '\n';
+        return -1;
+    }
+
     Game window("My Adventure", baseSquare * 30, baseSquare * 20);
 
     while (window.is_running()){
@@ -30,8 +38,15 @@ int main(int argc, char* argv[]){
         window.update();
         window.clear();
         window.render();
+
+        if (GameTimer::get_DT() < FPSTime){
+            SDL_Delay(FPSTime - GameTimer::get_DT());
+        }
     }
     window.close();
+
+    Vector2D test(1, 2);
+    std::cout << test * 2;
     
     return 0;
 }

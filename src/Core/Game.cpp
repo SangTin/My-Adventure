@@ -1,4 +1,10 @@
+#include <iostream>
+#include <SDL2/SDL_image.h>
+#include <SDL2/SDL_mixer.h>
+#include <SDL2/SDL_ttf.h>
 #include <Core/Game.hpp>
+#include <UI/Mouse.hpp>
+#include <Core/StateManager.hpp>
 
 SDL_Renderer* Game::renderer = NULL;
 SDL_Window* Game::window = NULL;
@@ -18,15 +24,12 @@ Game::Game(const char* title, int width, int height)
         std::cout << "Renderer could not be created! SDL_Error: " << SDL_GetError() << '\n';
     }
     SDL_SetRenderDrawColor(renderer, 33, 31, 48, 255);
+    Mouse::init();
 
     this->width = width;
     this->height = height;
     center.x = width / 2;
     center.y = height / 2;
-}
-
-//Destructor of class game
-Game::~Game(){
 }
 
 //Return game's status (running or not)
@@ -44,6 +47,8 @@ void Game::toggle_fullscreen(){
 
 //Refresh and update all game objects
 void Game::update(){
+    Mouse::update();
+    StateManager::update();
 }
 
 //Clear all game texture on the screen (renderer)
@@ -85,4 +90,6 @@ void Game::close(){
     renderer = NULL;
     SDL_Quit();
     IMG_Quit();
+    Mix_Quit();
+    TTF_Quit();
 }
