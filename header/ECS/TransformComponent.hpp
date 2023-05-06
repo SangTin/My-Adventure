@@ -1,13 +1,18 @@
 #pragma once
 #include "ECS.hpp"
+#include <SDL2/SDL.h>
 #include <Core/Vector2D.hpp>
 
 class TransformComponent : public Component{
-    private:
+    public:
         Vector2D position, velocity;
         double speed = 2;
+
+        SDL_Rect dst;
+        double scale;
+        
     public:
-        TransformComponent(double x = 0, double y = 0);
+        TransformComponent(int x = 0, int y = 0, int width = 0, int height = 0, double scale = 1);
         void update() override;
 
         void change_position(Vector2D mPosition);

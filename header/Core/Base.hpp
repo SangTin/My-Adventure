@@ -1,5 +1,6 @@
 #pragma once
 #include <cstddef> //size_t
+#include <SDL2/SDL.h>
 
 #define baseSquare 32
 
@@ -30,4 +31,6 @@ namespace Base{
         x1Mouse,
         x2Mouse
     };
+
+    const SDL_Color defaultColor = {196, 154, 108, 255};
 }

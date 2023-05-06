@@ -4,12 +4,13 @@
 #include <SDL2/SDL_ttf.h>
 #include <Core/Game.hpp>
 #include <UI/Mouse.hpp>
-#include <Core/StateManager.hpp>
+#include <Core/Managers.hpp>
 
 SDL_Renderer* Game::renderer = NULL;
 SDL_Window* Game::window = NULL;
 SDL_Event Game::event;
 SDL_Point Game::center;
+TTF_Font* Game::font = NULL;
 
 //Create game window named after title and size width x height (pixel)
 Game::Game(const char* title, int width, int height)
@@ -25,6 +26,7 @@ Game::Game(const char* title, int width, int height)
     }
     SDL_SetRenderDrawColor(renderer, 33, 31, 48, 255);
     Mouse::init();
+    font = FontManager::load_font("assets/font/prstartk.ttf");
 
     this->width = width;
     this->height = height;

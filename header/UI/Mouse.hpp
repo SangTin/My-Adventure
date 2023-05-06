@@ -16,5 +16,5 @@ class Mouse{
         static void update(); 
         static void change_mouse_state(Base::mouseStats mStat);
         static bool get_button_state(int mButton);
-        static SDL_Point get_position();
+        static SDL_Point* get_position();
 };

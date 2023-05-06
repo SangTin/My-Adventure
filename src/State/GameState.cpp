@@ -1,10 +1,18 @@
 #include <State/GameState.hpp>
 
-void GameState::init(){
-    active = true;
+void GameState::refresh(){
+    manager.refresh();
 }
 
-bool GameState::is_active(){
+void GameState::update(){
+    manager.update();
+}
+
+void GameState::render(){
+    manager.render();
+}
+
+bool GameState::is_active() const{
     return active;
 }
 

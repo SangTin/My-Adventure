@@ -32,10 +32,6 @@ void Entity::add_group(Group oGroup){
 void Entity::del_group(Group oGroup){
     groupBitSet[oGroup] = false;
 }
-
-Entity* Entity::get_entity(){
-    return this;
-}
 //End class Entity
 
 //Start class EnityManager

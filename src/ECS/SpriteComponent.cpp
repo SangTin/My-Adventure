@@ -1,8 +1,10 @@
 #include <ECS/SpriteComponent.hpp>
 #include <Core/TextureManager.hpp>
 
-SpriteComponent::SpriteComponent(const char* path){
+SpriteComponent::SpriteComponent(const char* path, int width, int height){
     texture = TextureManager::load_texture(path);
+    src = {0, 0, width, height};
+    flip = SDL_FLIP_NONE;
 }
 
 SpriteComponent::~SpriteComponent(){
@@ -11,17 +13,8 @@ SpriteComponent::~SpriteComponent(){
 
 void SpriteComponent::init(){
     transform = &entity->get_component<TransformComponent>();
-
-    src.x = src.y = 0;
-    dst.x = dst.y = 0;
-    flip = SDL_FLIP_NONE;
-}
-
-void SpriteComponent::update(){
-    dst.x = transform->get_x();
-    dst.y = transform->get_y();
 }
 
 void SpriteComponent::render(){
-    TextureManager::draw(texture, &src, &dst, flip);
+    TextureManager::draw(texture, &src, &transform->dst, flip);
 }

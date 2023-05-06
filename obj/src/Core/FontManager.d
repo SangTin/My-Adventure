@@ -52,8 +52,11 @@ obj/src/Core/FontManager.o: src/Core/FontManager.cpp \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h \
- header/Core/TTF_Text.hpp header/Core/TextureManager.hpp \
- D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h
+ header/Core/TTF_Text.hpp header/Core/Base.hpp \
+ header/Core/TextureManager.hpp \
+ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
+ header/Core/Game.hpp \
+ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h
 header/Core/FontManager.hpp:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_main.h:
@@ -108,5 +111,8 @@ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
 header/Core/TTF_Text.hpp:
+header/Core/Base.hpp:
 header/Core/TextureManager.hpp:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h:
+header/Core/Game.hpp:
+D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h:

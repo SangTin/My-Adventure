@@ -1,17 +1,21 @@
 #pragma once
 #include <vector>
+#include <ECS/ECS.hpp>
 
 class GameState{
     protected:
-        bool active;
+        bool active = true;
+        EnityManager manager;
+
     public:
         virtual ~GameState() = 0;
 
         //Get called when the state first get set
         virtual void init() = 0;
+        void refresh();
+        void update();
+        void render();
 
-        virtual void update() = 0;
-        virtual void render() = 0;
-        virtual bool is_active();
-        virtual void destroy();
+        bool is_active() const;
+        void destroy();
 };

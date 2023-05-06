@@ -1,4 +1,5 @@
-obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
+obj/src/ECS/Button.o: src/ECS/Button.cpp header/ECS/Button.hpp \
+ header/ECS/ECS.hpp header/ECS/SpriteComponent.hpp \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_main.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_stdinc.h \
@@ -49,16 +50,11 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_locale.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h \
- header/Core/Game.hpp \
- D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
- D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h \
- D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h \
- D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h \
- header/Core/GameTimer.hpp header/Core/Vector2D.hpp \
- header/ECS/Components.hpp header/ECS/ECS.hpp \
- header/ECS/TransformComponent.hpp header/ECS/SpriteComponent.hpp \
- header/ECS/KeyboardController.hpp header/ECS/Button.hpp
-header/Core/Base.hpp:
+ header/ECS/TransformComponent.hpp header/Core/Vector2D.hpp \
+ header/UI/Mouse.hpp header/core/Base.hpp
+header/ECS/Button.hpp:
+header/ECS/ECS.hpp:
+header/ECS/SpriteComponent.hpp:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_main.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_stdinc.h:
@@ -109,16 +105,7 @@ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_timer.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_version.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_locale.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h:
-header/Core/Game.hpp:
-D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h:
-D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
-D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h:
-D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h:
-header/Core/GameTimer.hpp:
-header/Core/Vector2D.hpp:
-header/ECS/Components.hpp:
-header/ECS/ECS.hpp:
 header/ECS/TransformComponent.hpp:
-header/ECS/SpriteComponent.hpp:
-header/ECS/KeyboardController.hpp:
-header/ECS/Button.hpp:
+header/Core/Vector2D.hpp:
+header/UI/Mouse.hpp:
+header/core/Base.hpp:

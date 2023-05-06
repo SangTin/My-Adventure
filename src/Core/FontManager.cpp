@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Core/FontManager.hpp>
 #include <Core/TextureManager.hpp>
+#include <Core/Game.hpp>
 
 /**
  * Load font from given path
@@ -31,7 +32,12 @@ void FontManager::draw_text(TTF_Text* text, SDL_Rect* dst){
     TextureManager::draw(text->texture, &text->src, dst);
 }
 
-void FontManager::draw_text(TTF_Font* font, const char* mText, SDL_Color color, SDL_Rect* dst){
+void FontManager::draw_text(TTF_Font* font, const char* mText, SDL_Rect* dst, SDL_Color color){
     TTF_Text text = load_text(font, mText, color);
+    draw_text(&text, dst);
+}
+
+void FontManager::draw_text(const char* mText, SDL_Rect* dst, SDL_Color color){
+    TTF_Text text = load_text(Game::font, mText, color);
     draw_text(&text, dst);
 }

@@ -3,6 +3,7 @@
 #include <Core/Game.hpp>
 #include <Core/GameTimer.hpp>
 #include <Core/Vector2D.hpp>
+#include <Core/Managers.hpp>
 
 const int FPS = 144;
 const int FPSTime = 1000.0 / FPS;
@@ -44,9 +45,6 @@ int main(int argc, char* argv[]){
         }
     }
     window.close();
-
-    Vector2D test(1, 2);
-    std::cout << test * 2;
     
     return 0;
 }

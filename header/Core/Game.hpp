@@ -14,6 +14,7 @@ class Game{
         static SDL_Window* window;
         static SDL_Event event;
         static SDL_Point center;
+        static TTF_Font* font;
 
         Game(const char* title, int width, int height);
         bool is_running()const;

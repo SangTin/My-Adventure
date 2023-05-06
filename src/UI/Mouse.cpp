@@ -32,7 +32,6 @@ void Mouse::init(){
 */
 void Mouse::change_mouse_state(mouseStats mStat){
     mouseState = std::min(mouseState, mStat);
-    update();
 }
 
 /**
@@ -65,13 +64,9 @@ void Mouse::update(){
     }
 
     mouseState = mouseIdle;
-    
-    const Uint8 *keys = SDL_GetKeyboardState(NULL);
-    if (keys[SDL_SCANCODE_RIGHT])
-        std::cout << "Right key";
 }
 
 //Return current mouse's position
-SDL_Point Mouse::get_position(){
-    return position;
+SDL_Point* Mouse::get_position(){
+    return &position;
 }

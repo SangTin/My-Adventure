@@ -86,8 +86,6 @@ class Entity{
             auto ptr(componentArray[get_component_ID<T>()]);
             return *static_cast<T*>(ptr);
         }
-
-        Entity* get_entity();
 };  
 
 class EnityManager{

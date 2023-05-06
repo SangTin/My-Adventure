@@ -1,11 +1,15 @@
 #include <ECS/TransformComponent.hpp>
 
-TransformComponent::TransformComponent(double x, double y){
+TransformComponent::TransformComponent(int x, int y, int width, int height, double scale){
+    dst = {x, y, width, height};
     position = Vector2D(x, y);
+    this->scale = scale;
 }
 
 void TransformComponent::update(){
     position += velocity * speed;
+    dst.x = position.x;
+    dst.y = position.y;
 }
 
 void TransformComponent::change_position(Vector2D mPosition){
