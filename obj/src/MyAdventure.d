@@ -55,9 +55,13 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h \
  header/Core/GameTimer.hpp header/Core/Vector2D.hpp \
- header/ECS/Components.hpp header/ECS/ECS.hpp \
+ header/State/States.hpp header/Core/StateManager.hpp \
+ header/State/GameState.hpp header/ECS/Components.hpp header/ECS/ECS.hpp \
  header/ECS/TransformComponent.hpp header/ECS/SpriteComponent.hpp \
- header/ECS/KeyboardController.hpp header/ECS/Button.hpp
+ header/ECS/KeyboardController.hpp header/ECS/Button/Button.hpp \
+ header/ECS/Button/../Sound.hpp header/ECS/Button/ClickedButton.hpp \
+ header/ECS/Physic/Gravity.hpp header/State/Menu.hpp \
+ header/State/LevelsMenu.hpp
 header/Core/Base.hpp:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_main.h:
@@ -116,9 +120,17 @@ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h:
 header/Core/GameTimer.hpp:
 header/Core/Vector2D.hpp:
+header/State/States.hpp:
+header/Core/StateManager.hpp:
+header/State/GameState.hpp:
 header/ECS/Components.hpp:
 header/ECS/ECS.hpp:
 header/ECS/TransformComponent.hpp:
 header/ECS/SpriteComponent.hpp:
 header/ECS/KeyboardController.hpp:
-header/ECS/Button.hpp:
+header/ECS/Button/Button.hpp:
+header/ECS/Button/../Sound.hpp:
+header/ECS/Button/ClickedButton.hpp:
+header/ECS/Physic/Gravity.hpp:
+header/State/Menu.hpp:
+header/State/LevelsMenu.hpp:

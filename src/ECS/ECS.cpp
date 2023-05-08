@@ -13,6 +13,14 @@ void Entity::refresh(){
     for (auto &c : components) c->refresh();
 }
 
+void Entity::lose_focus(){
+    for (auto &c : components) c->lose_focus();
+}
+
+void Entity::gain_focus(){
+    for (auto &c : components) c->gain_focus();
+}
+
 bool Entity::is_active() const{ 
     return active; 
 }
@@ -64,6 +72,14 @@ void EnityManager::refresh(){
     for (auto &e : entities) e->refresh();
 }
 
+void EnityManager::lose_focus(){
+    for (auto& e : entities) e->lose_focus();
+}
+
+void EnityManager::gain_focus(){
+    for (auto& e : entities) e->gain_focus();
+}
+
 void EnityManager::add_to_group(Entity* mEntity, Group mGroup){
     groupedEntities[mGroup].emplace_back(mEntity);
 }
@@ -72,10 +88,10 @@ std::vector<Entity*>& EnityManager::get_group(Group mGroup){
     return groupedEntities[mGroup];
 }
 
-Entity& EnityManager::add_entity(){
+Entity* EnityManager::add_entity(){
     Entity* e = new Entity(*this);
     std::unique_ptr<Entity> uPtr{ e };
     entities.emplace_back(std::move(uPtr));
-    return *e;  
+    return e;
 }
 //End class EnityManager

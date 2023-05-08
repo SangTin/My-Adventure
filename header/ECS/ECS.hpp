@@ -40,6 +40,8 @@ class Component{
         virtual void update(){}
         virtual void render(){}
         virtual void refresh(){}
+        virtual void lose_focus(){}
+        virtual void gain_focus(){}
 
         virtual ~Component(){}
 };
@@ -59,11 +61,15 @@ class Entity{
         void update();
         void render();
         void refresh();
+        void lose_focus();
+        void gain_focus();
         bool is_active() const;
         void destroy();
         bool has_group(Group oGroup);
         void add_group(Group oGroup);
         void del_group(Group oGroup);
+        int get_width();
+        int get_height();
 
         template <typename T> bool has_component()const{
             return componentBitSet[get_component_ID<T>()];
@@ -97,7 +103,9 @@ class EnityManager{
         void update();
         void render();
         void refresh();
+        void lose_focus();
+        void gain_focus();
         void add_to_group(Entity* mEntity, Group mGroup);
         std::vector<Entity*>& get_group(Group mGroup);
-        Entity& add_entity();
+        Entity* add_entity();
 };

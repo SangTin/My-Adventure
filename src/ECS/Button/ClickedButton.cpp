@@ -1,4 +1,4 @@
-#include <ECS/ClickedButton.hpp>
+#include <ECS/Button/ClickedButton.hpp>
 #include <UI/Mouse.hpp>
 
 void ClickedButton::update(){
@@ -8,16 +8,22 @@ void ClickedButton::update(){
     if (focus && SDL_PointInRect(Mouse::get_position(), &transform->dst)){
         if (!selected){
             selected = true;
+
+            //Hover_sound
+            sound->play_sound("Hover");
         }
-        if (Mouse::get_button_state(Base::leftMouse) && released){
+        if (Mouse::get_button_state(SDL_BUTTON_LEFT) && released){
             released = false;
 
             //Pressed_sprite
             sprite->src.x = sprite->src.w * 2;
             sprite->src.y = 0;
+
+            //Pressed_sound
+            sound->play_sound("Pressed");
         }
         else{
-            if (!Mouse::get_button_state(Base::leftMouse)){
+            if (!Mouse::get_button_state(SDL_BUTTON_LEFT)){
                 if (!released){
                     pressed = true;
                 }

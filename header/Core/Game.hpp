@@ -6,8 +6,8 @@
 
 class Game{
     private:
-        double width, height, scale;
-        int disWidth, disHeight;
+        int width, height;
+        double scale;
         bool running;
     public:
         static SDL_Renderer* renderer;

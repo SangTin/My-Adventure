@@ -30,8 +30,7 @@ Game::Game(const char* title, int width, int height)
 
     this->width = width;
     this->height = height;
-    center.x = width / 2;
-    center.y = height / 2;
+    center = {width / 2, height / 2};
 }
 
 //Return game's status (running or not)
@@ -55,11 +54,13 @@ void Game::update(){
 
 //Clear all game texture on the screen (renderer)
 void Game::clear(){
+    StateManager::refresh();
     SDL_RenderClear(renderer);
 }
 
 //Render all game objects to the screen (renderer)
 void Game::render(){
+    StateManager::render();
     SDL_RenderPresent(renderer);
 }
 

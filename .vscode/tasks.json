@@ -11,6 +11,7 @@
                 "${workspaceFolder}/src/*.cpp",
                 "${workspaceFolder}/src/Core/*.cpp",
                 "${workspaceFolder}/src/ECS/*.cpp",
+                "${workspaceFolder}/src/ECS/Button/*.cpp",
                 "${workspaceFolder}/src/State/*.cpp",
                 "${workspaceFolder}/src/UI/*.cpp",
                 "-o",

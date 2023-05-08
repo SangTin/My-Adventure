@@ -1,12 +1,16 @@
 #pragma once
 #include "GameState.hpp"
+#include <SDL2/SDL_mixer.h>
 
 class Menu : public GameState{
     private:
-        Entity *Play, *Option, *Quit;
+        ClickedButton *Play, *Option, *Quit;
+        std::vector<ClickedButton*> buttons;
 
-        Entity* create_button(const char* path, int x, int y, int width, int height, double scale);
     public:
         void init() override;
-        
+        void update() override;
+
+    private:
+        void play();
 };

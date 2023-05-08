@@ -51,7 +51,10 @@ obj/src/ECS/ClickedButton.o: src/ECS/ClickedButton.cpp \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_locale.h \
  D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h \
- header/ECS/TransformComponent.hpp header/Core/Vector2D.hpp
+ header/ECS/TransformComponent.hpp header/Core/Vector2D.hpp \
+ header/ECS/Sound.hpp \
+ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h \
+ header/UI/Mouse.hpp header/core/Base.hpp
 header/ECS/ClickedButton.hpp:
 header/ECS/Button.hpp:
 header/ECS/ECS.hpp:
@@ -108,3 +111,7 @@ D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_locale.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_misc.h:
 header/ECS/TransformComponent.hpp:
 header/Core/Vector2D.hpp:
+header/ECS/Sound.hpp:
+D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_mixer.h:
+header/UI/Mouse.hpp:
+header/core/Base.hpp:

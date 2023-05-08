@@ -57,6 +57,11 @@ obj/src/Core/Game.o: src/Core/Game.cpp \
  header/UI/Mouse.hpp header/core/Base.hpp header/Core/Managers.hpp \
  header/Core/TextureManager.hpp header/Core/SoundManager.hpp \
  header/Core/StateManager.hpp header/State/GameState.hpp \
+ header/ECS/Components.hpp header/ECS/ECS.hpp \
+ header/ECS/TransformComponent.hpp header/Core/Vector2D.hpp \
+ header/ECS/SpriteComponent.hpp header/ECS/KeyboardController.hpp \
+ header/ECS/Button/Button.hpp header/ECS/Button/../Sound.hpp \
+ header/ECS/Button/ClickedButton.hpp header/ECS/Physic/Gravity.hpp \
  header/Core/FontManager.hpp header/Core/TTF_Text.hpp
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL_image.h:
 D:/Tools/libraries/SDL2/x86_64-w64-mingw32/include/SDL2/SDL.h:
@@ -120,5 +125,15 @@ header/Core/TextureManager.hpp:
 header/Core/SoundManager.hpp:
 header/Core/StateManager.hpp:
 header/State/GameState.hpp:
+header/ECS/Components.hpp:
+header/ECS/ECS.hpp:
+header/ECS/TransformComponent.hpp:
+header/Core/Vector2D.hpp:
+header/ECS/SpriteComponent.hpp:
+header/ECS/KeyboardController.hpp:
+header/ECS/Button/Button.hpp:
+header/ECS/Button/../Sound.hpp:
+header/ECS/Button/ClickedButton.hpp:
+header/ECS/Physic/Gravity.hpp:
 header/Core/FontManager.hpp:
 header/Core/TTF_Text.hpp:

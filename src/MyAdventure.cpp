@@ -3,7 +3,7 @@
 #include <Core/Game.hpp>
 #include <Core/GameTimer.hpp>
 #include <Core/Vector2D.hpp>
-#include <Core/Managers.hpp>
+#include <State/States.hpp>
 
 const int FPS = 144;
 const int FPSTime = 1000.0 / FPS;
@@ -33,6 +33,7 @@ int main(int argc, char* argv[]){
     }
 
     Game window("My Adventure", baseSquare * 30, baseSquare * 20);
+    StateManager::add_state<Menu>();
 
     while (window.is_running()){
         window.handle_events();
