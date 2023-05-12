@@ -1,5 +1,7 @@
 #pragma once  
 #include <Core/StateManager.hpp> 
-#include <State/GameState.hpp>
-#include <State/Menu.hpp>
-#include <State/LevelsMenu.hpp>
+#include "GameState.hpp"
+#include "Menu.hpp"
+#include "LevelsMenu.hpp"
+#include "QuitDialouge.hpp"
+#include "OptionMenu.hpp"

@@ -2,11 +2,9 @@
 
 class GameTimer{
     private:
-        static unsigned int m_OldTick;
-        static unsigned int m_CurrentTick;
+        static double m_DeltaTime, m_OldTime;
 
-        friend class StateManager;
-        static void update_timer();
     public:
+        static void update_timer();
         static double get_DT();
 };

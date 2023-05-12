@@ -14,18 +14,8 @@ void GameState::render(){
     manager.render();
 }
 
-void GameState::lose_focus(){
-    manager.lose_focus();
-}
-
-void GameState::gain_focus(){
-    show();
-    manager.gain_focus();
-}
-
 void GameState:: hide(){
     hidden = true;
-    lose_focus();
 }
 
 void GameState:: show(){

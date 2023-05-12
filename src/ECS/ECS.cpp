@@ -1,6 +1,11 @@
 #include <ECS/ECS.hpp>
 
 //Start class Entity
+void Entity::init_manager(EntityManager* oManager){
+    manager = oManager;
+    init();
+}
+
 void Entity::update(){
     for (auto &c : components) c->update();
 }
@@ -11,14 +16,6 @@ void Entity::render(){
 
 void Entity::refresh(){
     for (auto &c : components) c->refresh();
-}
-
-void Entity::lose_focus(){
-    for (auto &c : components) c->lose_focus();
-}
-
-void Entity::gain_focus(){
-    for (auto &c : components) c->gain_focus();
 }
 
 bool Entity::is_active() const{ 
@@ -35,6 +32,7 @@ bool Entity::has_group(Group oGroup){
 
 void Entity::add_group(Group oGroup){
     groupBitSet[oGroup] = true;
+    manager->add_to_group(this, oGroup);
 }
 
 void Entity::del_group(Group oGroup){
@@ -42,14 +40,14 @@ void Entity::del_group(Group oGroup){
 }
 //End class Entity
 
-//Start class EnityManager
-void EnityManager::update(){
+//Start class EntityManager
+void EntityManager::update(){
     for (auto &e : entities) e->update();
 }
-void EnityManager::render(){
+void EntityManager::render(){
     for (auto &e : entities) e->render();
 }
-void EnityManager::refresh(){
+void EntityManager::refresh(){
     for (auto i(0u); i < maxGroups; ++i){
         auto& v(groupedEntities[i]);
         v.erase(std::remove_if(std::begin(v), std::end(v),
@@ -72,26 +70,11 @@ void EnityManager::refresh(){
     for (auto &e : entities) e->refresh();
 }
 
-void EnityManager::lose_focus(){
-    for (auto& e : entities) e->lose_focus();
-}
-
-void EnityManager::gain_focus(){
-    for (auto& e : entities) e->gain_focus();
-}
-
-void EnityManager::add_to_group(Entity* mEntity, Group mGroup){
+void EntityManager::add_to_group(Entity* mEntity, Group mGroup){
     groupedEntities[mGroup].emplace_back(mEntity);
 }
 
-std::vector<Entity*>& EnityManager::get_group(Group mGroup){
+std::vector<Entity*>& EntityManager::get_group(Group mGroup){
     return groupedEntities[mGroup];
 }
-
-Entity* EnityManager::add_entity(){
-    Entity* e = new Entity(*this);
-    std::unique_ptr<Entity> uPtr{ e };
-    entities.emplace_back(std::move(uPtr));
-    return e;
-}
-//End class EnityManager
+//End class EntityManager

@@ -1,16 +1,20 @@
 #include <Core/GameTimer.hpp>
 #include <SDL2/SDL.h>
 
-unsigned int GameTimer::m_OldTick;
-unsigned int GameTimer::m_CurrentTick;
+const int TARGET_FPS = 144;
+const double TARGET_DELTATIME = 1.5;
+
+double GameTimer::m_DeltaTime;
+double GameTimer::m_OldTime;
 
 void GameTimer::update_timer(){
-    m_OldTick = m_CurrentTick;
-    m_CurrentTick = SDL_GetTicks();
+    m_DeltaTime = (SDL_GetTicks() - m_OldTime) * (TARGET_FPS / 1000.0);
+    if (m_DeltaTime > TARGET_DELTATIME){
+        m_DeltaTime = TARGET_DELTATIME;
+    }
+    m_OldTime = SDL_GetTicks();
 }
 
 double GameTimer::get_DT(){
-    double res = (m_CurrentTick - m_OldTick) / 1000.0;
-    if (res > 0.2) res = 0.2;
-    return res;
+    return m_DeltaTime;
 }

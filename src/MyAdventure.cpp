@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    Game window("My Adventure", baseSquare * 30, baseSquare * 20);
+    static Game window("My Adventure", baseSquare * 30, baseSquare * 20);
     StateManager::add_state<Menu>();
 
     while (window.is_running()){
@@ -45,7 +45,6 @@ int main(int argc, char* argv[]){
             SDL_Delay(FPSTime - GameTimer::get_DT());
         }
     }
-    window.close();
     
     return 0;
 }

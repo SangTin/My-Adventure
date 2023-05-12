@@ -5,10 +5,12 @@
 #include <algorithm>
 #include <bitset>
 #include <array>
+#include <string>
+#include <Core/Base.hpp>
 
 class Component;
 class Entity;
-class EnityManager;
+class EntityManager;
 
 using ComponentID = std::size_t;
 using Group = std::size_t;
@@ -47,8 +49,8 @@ class Component{
 };
 
 class Entity{
-    private:
-        EnityManager& manager;
+    protected:
+        EntityManager* manager;
         bool active = true;
         std::vector<std::unique_ptr<Component>> components;
 
@@ -56,20 +58,21 @@ class Entity{
         ComponentBitSet componentBitSet;
         GroupBitSet groupBitSet;
     public:
-        Entity(EnityManager& oManager) : manager(oManager){}
+        Entity() = default;
+        void init_manager(EntityManager* oManager);
 
-        void update();
-        void render();
-        void refresh();
-        void lose_focus();
-        void gain_focus();
+        virtual void update();
+        virtual void render();
+        virtual void refresh();
+
+        virtual void init(){}
+        virtual void add_sound(const std::string name, const char* path){}
+        
         bool is_active() const;
         void destroy();
         bool has_group(Group oGroup);
         void add_group(Group oGroup);
         void del_group(Group oGroup);
-        int get_width();
-        int get_height();
 
         template <typename T> bool has_component()const{
             return componentBitSet[get_component_ID<T>()];
@@ -94,7 +97,7 @@ class Entity{
         }
 };  
 
-class EnityManager{
+class EntityManager{
     private:
         std::vector<std::unique_ptr<Entity>> entities;
         std::array<std::vector<Entity*>, maxGroups> groupedEntities;
@@ -103,9 +106,14 @@ class EnityManager{
         void update();
         void render();
         void refresh();
-        void lose_focus();
-        void gain_focus();
         void add_to_group(Entity* mEntity, Group mGroup);
         std::vector<Entity*>& get_group(Group mGroup);
-        Entity* add_entity();
+
+        template <typename T, typename... TArgs> T& add_entity(TArgs&&... mArgs){
+            T* e(new T(std::forward<TArgs>(mArgs)...));
+            e->init_manager(this);
+            std::unique_ptr<Entity> uPtr{ e };
+            entities.emplace_back(std::move(uPtr));
+            return *e;
+        }
 };

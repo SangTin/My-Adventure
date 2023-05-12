@@ -10,7 +10,7 @@ class Mouse{
         static Base::mouseStats mouseState;
         static Uint32 mouseMask;
         static SDL_Point position;
-        static SDL_Cursor *normal, *pointing, *holding;
+        static SDL_Cursor *normal, *pointing, *holding, *pointingHolding;
     public:
         static void init();
         static void update(); 

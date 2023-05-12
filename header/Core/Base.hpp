@@ -9,10 +9,12 @@ namespace Base{
         groupMap,
         groupPlayers,
         groupEnemies,
+        groupButtons,
         groupColliders
     };
 
     enum mouseStats : std::size_t{
+        mousePointingHolding,
         mousePointing,
         mouseHolding,
         mouseIdle
@@ -30,6 +32,12 @@ namespace Base{
         rightMouse,
         x1Mouse,
         x2Mouse
+    };
+
+    enum sliderType{
+        sfxID = 16,
+        musicID = 9,
+        sliderNan = -1
     };
 
     const SDL_Color defaultColor = {196, 154, 108, 255};

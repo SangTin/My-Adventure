@@ -60,7 +60,9 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "filesystem": "cpp"
+        "filesystem": "cpp",
+        "charconv": "cpp",
+        "*.d": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

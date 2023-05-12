@@ -4,13 +4,15 @@
 
 class Menu : public GameState{
     private:
+        Mix_Music* soundtrack;
         ClickedButton *Play, *Option, *Quit;
-        std::vector<ClickedButton*> buttons;
-
     public:
         void init() override;
         void update() override;
+        void destroy() override;
 
     private:
         void play();
+        void quit();
+        void option();
 };

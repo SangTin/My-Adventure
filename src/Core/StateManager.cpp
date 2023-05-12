@@ -1,6 +1,5 @@
 #include <algorithm> //remove_if
 #include <Core/StateManager.hpp>
-#include <Core/GameTimer.hpp>
 
 std::vector<std::unique_ptr<GameState>> StateManager::states;
 
@@ -16,9 +15,7 @@ void StateManager::refresh(){
 }
 
 void StateManager::update(){
-    GameTimer::update_timer();
     if (!states.empty()) {
-        states.back()->gain_focus();
         states.back()->update();
     }
 }

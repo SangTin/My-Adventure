@@ -11,7 +11,7 @@ SUBDIR = semihost stream arg_parser
 DIR_OBJ = ./obj
 DIR_SRC = ./obj
 
-SDL2_PATH = D:/Tools/libraries/SDL2/x86_64-w64-mingw32
+SDL2_PATH = ./libraries/SDL2
 
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 

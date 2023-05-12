@@ -1,12 +1,13 @@
 #pragma once
 #include <vector>
-#include <ECS/Components.hpp>
+#include <ECS/Component/Components.hpp>
+#include <ECS/Entity/Entities.hpp>
 
 class GameState{
     protected:
         bool active = true;
         bool hidden = false;
-        EnityManager manager;
+        EntityManager manager;
 
     public:
         virtual ~GameState(){}
@@ -16,11 +17,9 @@ class GameState{
         virtual void refresh();
         virtual void update();
         virtual void render();
-        virtual void lose_focus();
-        virtual void gain_focus();
         virtual void hide();
         virtual void show();
+        virtual void destroy();
 
         bool is_active() const;
-        void destroy();
 };

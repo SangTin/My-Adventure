@@ -6,21 +6,25 @@ using namespace Base;
 mouseStats Mouse::mouseState;
 Uint32 Mouse::mouseMask;
 SDL_Point Mouse::position;
-SDL_Cursor *Mouse::normal, *Mouse::pointing, *Mouse::holding;
+SDL_Cursor *Mouse::normal, *Mouse::pointing, *Mouse::holding, *Mouse::pointingHolding;
 
 //Initialize mouse cursor with several display types
 void Mouse::init(){
-    SDL_Surface* normalSurface = IMG_Load("assets/img/Mouse/Catpaw Mouse.png");
+    SDL_Surface* normalSurface = IMG_Load("assets/img/Mouse/Triangle Mouse.png");
     normal = SDL_CreateColorCursor(normalSurface, 0, 0);
     SDL_FreeSurface(normalSurface);
 
-    SDL_Surface* pointingSurface = IMG_Load("assets/img/Mouse/Catpaw pointing Mouse.png");
+    SDL_Surface* pointingSurface = IMG_Load("assets/img/Mouse/Triangle pointing Mouse.png");
     pointing = SDL_CreateColorCursor(pointingSurface, 0, 0);
     SDL_FreeSurface(pointingSurface);
 
-    SDL_Surface* holdingSurface = IMG_Load("assets/img/Mouse/Catpaw holding Mouse.png");
+    SDL_Surface* holdingSurface = IMG_Load("assets/img/Mouse/Triangle holding Mouse.png");
     holding = SDL_CreateColorCursor(holdingSurface, 0, 0);
     SDL_FreeSurface(holdingSurface);
+
+    SDL_Surface* pointingHoldingSurface = IMG_Load("assets/img/Mouse/Triangle pointing and holding Mouse.png");
+    pointingHolding = SDL_CreateColorCursor(pointingHoldingSurface, 0, 0);
+    SDL_FreeSurface(pointingHoldingSurface);
 
     mouseState = mouseIdle;
 }
@@ -60,6 +64,9 @@ void Mouse::update(){
         break;
     case mousePointing:
         SDL_SetCursor(pointing);
+        break;
+    case mousePointingHolding:
+        SDL_SetCursor(pointingHolding);
         break;
     }
 
