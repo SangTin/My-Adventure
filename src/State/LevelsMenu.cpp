@@ -1,4 +1,4 @@
-#include <State/LevelsMenu.hpp>
+#include <State/States.hpp>
 #include <Core/Game.hpp>
 #include <Core/TextureManager.hpp>
 #include <math.h> //log10
@@ -20,31 +20,34 @@ void LevelsMenu::init(){
     transform->centered();
     background->add_component<SpriteComponent>("assets/img/states/Levels/Levels.png", BG_WIDTH, BG_HEIGHT);
 
-    /*
     char path[] = "assets/img/states/Levels/LevelButton.png";
     const int LEVEL_X = transform->dst.x + 20 * transform->scale;
     const int LEVEL_Y = transform->dst.y + 42 * transform->scale;
 
-    for (int r = 1; r <= LEVEL_ROWS; ++r){
-        for (int c = 1; c <= LEVEL_COLUMN; ++c){
-            int cur_lv = (r - 1) * LEVEL_COLUMN + c;
-            
-            int x = LEVEL_X + (r - 1) * (LEVEL_W + 4) * SCALE;
-            int y = LEVEL_Y + (c - 1) * (LEVEL_H + 4) * SCALE;
+    for (int r = 0; r < LEVEL_ROWS; ++r){
+        for (int c = 0; c < LEVEL_COLUMN; ++c){
+            int x = LEVEL_X + r * (LEVEL_W + 4) * SCALE;
+            int y = LEVEL_Y + c * (LEVEL_H + 4) * SCALE;
 
-            levels.emplace_back(&Components::create_clicked_button(manager, path, x, y, LEVEL_W, LEVEL_H, SCALE));
+            levels.emplace_back(&manager.add_entity<ClickedButton>(path, x, y, LEVEL_W, LEVEL_H, SCALE));
+            
             levels.back()->add_sound("Hover", "assets/sound/menu/MenuHover.mp3");
             levels.back()->add_sound("Pressed", "assets/sound/menu/MenuPressed.mp3");
-
-            TransformComponent* levelsTransform = levels.back()->get_transform();  
         }
     }
-    */
 }
 
 void LevelsMenu::update(){
     GameState::update();
     if (Game::is_key_down(SDLK_ESCAPE)){
         destroy();
+    }
+    for (int r = 0; r < LEVEL_ROWS; ++r){
+        for (int c = 0; c < LEVEL_COLUMN; ++c){
+            int cur_lv = r * LEVEL_COLUMN + c;
+            if (levels[cur_lv]->is_pressed()){
+                StateManager::add_state<Play>(cur_lv + 1);
+            }
+        }
     }
 }

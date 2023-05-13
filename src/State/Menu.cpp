@@ -1,15 +1,18 @@
 #include <State/States.hpp>
 #include <Core/SoundManager.hpp>
 #include <Core/Game.hpp>
+#include <State/Dialouge.hpp>
 
 void Menu::init(){
-    Play = &manager.add_entity<ClickedButton>("assets/img/button/PlayButton.png", 0, 0, 92, 29, 2);
+    StateManager::clear_before();
+
+    Play = &manager.add_entity<ClickedButton>("assets/img/button/BigPlayButton.png", 0, 0, 92, 29, 2);
     Play->centered();
 
-    Option = &manager.add_entity<ClickedButton>("assets/img/button/OptionButton.png", 0, 58, 92, 29, 2);
+    Option = &manager.add_entity<ClickedButton>("assets/img/button/BigOptionButton.png", 0, 58, 92, 29, 2);
     Option->centered();
 
-    Quit = &manager.add_entity<ClickedButton>("assets/img/button/QuitButton.png", 0, 116, 92, 29, 2);
+    Quit = &manager.add_entity<ClickedButton>("assets/img/button/BigQuitButton.png", 0, 116, 92, 29, 2);
     Quit->centered();
 
     //Add sound
@@ -18,6 +21,10 @@ void Menu::init(){
         b->add_sound("Pressed", "assets/sound/menu/MenuPressed.mp3");
     }
     
+    //Set volume
+    SoundManager::set_music_volume(50);
+    SoundManager::set_sfx_volume(50);
+
     //Soundtrack: Valorant-Bazooka-Badger-Theme.mp3
     soundtrack = SoundManager::load_music("assets/sound/menu/Valorant-Bazooka-Badger-Theme.mp3");
     SoundManager::play_music(soundtrack);
@@ -44,7 +51,7 @@ void Menu::play(){
 
 void Menu::quit(){
     hide();
-    StateManager::add_state<QuitDialouge>();
+    StateManager::add_state<Dialouge<QuitGame>>("Are you sure you want to exit the game?");
 }
 
 void Menu::option(){

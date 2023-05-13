@@ -64,7 +64,8 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  header/ECS/Entity/ClickedButton.hpp header/ECS/Entity/Character.hpp \
  header/ECS/Entity/Slider.hpp header/ECS/Entity/ToggleButton.hpp \
  header/State/Menu.hpp header/State/LevelsMenu.hpp \
- header/State/QuitDialouge.hpp header/State/OptionMenu.hpp
+ header/State/OptionMenu.hpp header/State/Play.hpp \
+ header/State/PauseMenu.hpp header/State/QuitGame.hpp
 header/Core/Base.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -141,5 +142,7 @@ header/ECS/Entity/Slider.hpp:
 header/ECS/Entity/ToggleButton.hpp:
 header/State/Menu.hpp:
 header/State/LevelsMenu.hpp:
-header/State/QuitDialouge.hpp:
 header/State/OptionMenu.hpp:
+header/State/Play.hpp:
+header/State/PauseMenu.hpp:
+header/State/QuitGame.hpp:

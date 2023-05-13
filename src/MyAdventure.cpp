@@ -34,6 +34,7 @@ int main(int argc, char* argv[]){
 
     static Game window("My Adventure", baseSquare * 30, baseSquare * 20);
     StateManager::add_state<Menu>();
+    Mix_AllocateChannels(255);
 
     while (window.is_running()){
         window.handle_events();

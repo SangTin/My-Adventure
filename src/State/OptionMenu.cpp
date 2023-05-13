@@ -1,7 +1,8 @@
-#include <State/OptionMenu.hpp>
+#include <State/States.hpp>
 #include <Core/Base.hpp>
 #include <Core/Game.hpp>
 #include <Core/SoundManager.hpp>
+#include <UI/Mouse.hpp>
 
 #define SCALE 1
 #define BG_WIDTH 447
@@ -35,6 +36,9 @@ void OptionMenu::update(){
     int sfxVolumeOld = SoundManager::get_sfx_volume();
     GameState::update();
     if (Game::is_key_down(SDLK_ESCAPE)){
+        destroy();
+    }
+    if (Mouse::get_button_state(SDL_BUTTON_LEFT) && !SDL_PointInRect( Mouse::get_position(), &transform->dst )){
         destroy();
     }
     music->change_stats(SoundManager::get_music_volume() == 0);

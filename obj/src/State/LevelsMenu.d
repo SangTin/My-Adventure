@@ -1,8 +1,8 @@
 obj/src/State/LevelsMenu.o: src/State/LevelsMenu.cpp \
- header/State/LevelsMenu.hpp header/State/GameState.hpp \
- header/ECS/Component/Components.hpp header/ECS/ECS.hpp \
- header/Core/Base.hpp libraries/SDL2/include/SDL2/SDL.h \
- libraries/SDL2/include/SDL2/SDL_main.h \
+ header/State/States.hpp header/Core/StateManager.hpp \
+ header/State/GameState.hpp header/ECS/Component/Components.hpp \
+ header/ECS/ECS.hpp header/Core/Base.hpp \
+ libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_main.h \
  libraries/SDL2/include/SDL2/SDL_stdinc.h \
  libraries/SDL2/include/SDL2/SDL_config.h \
  libraries/SDL2/include/SDL2/SDL_platform.h \
@@ -59,10 +59,14 @@ obj/src/State/LevelsMenu.o: src/State/LevelsMenu.cpp \
  header/ECS/Entity/Entities.hpp header/ECS/Entity/Button.hpp \
  header/ECS/Entity/ClickedButton.hpp header/ECS/Entity/Character.hpp \
  header/ECS/Entity/Slider.hpp header/ECS/Entity/ToggleButton.hpp \
+ header/State/Menu.hpp header/State/LevelsMenu.hpp \
+ header/State/OptionMenu.hpp header/State/Play.hpp \
+ header/State/PauseMenu.hpp header/State/QuitGame.hpp \
  header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h \
  header/Core/TextureManager.hpp
-header/State/LevelsMenu.hpp:
+header/State/States.hpp:
+header/Core/StateManager.hpp:
 header/State/GameState.hpp:
 header/ECS/Component/Components.hpp:
 header/ECS/ECS.hpp:
@@ -130,6 +134,12 @@ header/ECS/Entity/ClickedButton.hpp:
 header/ECS/Entity/Character.hpp:
 header/ECS/Entity/Slider.hpp:
 header/ECS/Entity/ToggleButton.hpp:
+header/State/Menu.hpp:
+header/State/LevelsMenu.hpp:
+header/State/OptionMenu.hpp:
+header/State/Play.hpp:
+header/State/PauseMenu.hpp:
+header/State/QuitGame.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:

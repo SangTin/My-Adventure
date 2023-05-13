@@ -31,3 +31,9 @@ void StateManager::clear(){
         s->destroy();
     }
 }
+
+void StateManager::clear_before(){
+    for (int s = 0; s < states.size() - 1; ++s){
+        states[s]->destroy();
+    }
+}

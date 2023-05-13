@@ -4,6 +4,7 @@
 #include <bitset>
 #include <memory>
 #include <State/GameState.hpp>
+#include <iostream>
 
 using StateID = std::size_t;
 
@@ -19,7 +20,6 @@ template <typename T> inline StateID get_state_ID() noexcept{
 }
 
 constexpr std::size_t maxStates = 32;
-#include <iostream>
 class StateManager{
     private:
         static std::vector<std::unique_ptr<GameState>> states;
@@ -28,9 +28,10 @@ class StateManager{
         static void update();
         static void render();
         static void clear();
+        static void clear_before();
 
-        template <typename T, typename... TArgs> static T& add_state(){
-            T* s(new T);
+        template <typename T, typename... TArgs> static T& add_state(TArgs&&... mArgs){
+            T* s(new T(std::forward<TArgs>(mArgs)...));
             std::unique_ptr<GameState> uPtr{ s };
             states.emplace_back(std::move(uPtr));
 

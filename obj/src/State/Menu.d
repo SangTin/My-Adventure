@@ -60,10 +60,13 @@ obj/src/State/Menu.o: src/State/Menu.cpp header/State/States.hpp \
  header/ECS/Entity/ClickedButton.hpp header/ECS/Entity/Character.hpp \
  header/ECS/Entity/Slider.hpp header/ECS/Entity/ToggleButton.hpp \
  header/State/Menu.hpp header/State/LevelsMenu.hpp \
- header/State/QuitDialouge.hpp header/State/OptionMenu.hpp \
+ header/State/OptionMenu.hpp header/State/Play.hpp \
+ header/State/PauseMenu.hpp header/State/QuitGame.hpp \
  header/Core/SoundManager.hpp header/Core/Game.hpp \
  libraries/SDL2/include/SDL2/SDL_image.h \
- libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h
+ libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h \
+ header/State/Dialouge.hpp header/Core/FontManager.hpp \
+ header/UI/Mouse.hpp
 header/State/States.hpp:
 header/Core/StateManager.hpp:
 header/State/GameState.hpp:
@@ -135,10 +138,15 @@ header/ECS/Entity/Slider.hpp:
 header/ECS/Entity/ToggleButton.hpp:
 header/State/Menu.hpp:
 header/State/LevelsMenu.hpp:
-header/State/QuitDialouge.hpp:
 header/State/OptionMenu.hpp:
+header/State/Play.hpp:
+header/State/PauseMenu.hpp:
+header/State/QuitGame.hpp:
 header/Core/SoundManager.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
+header/State/Dialouge.hpp:
+header/Core/FontManager.hpp:
+header/UI/Mouse.hpp:

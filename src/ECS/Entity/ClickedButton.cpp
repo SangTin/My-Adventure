@@ -45,12 +45,15 @@ void ClickedButton::update(){
             if (!Mouse::get_button_state(SDL_BUTTON_LEFT)){
                 if (!released){
                     pressed = true;
+                    released = true;
                     if (sound){
                         sound->play_sound("Pressed");
                     }
+                    sprite->src.x = (sprite->src.w * DEFAULT);
                 }
-                released = true;
-                sprite->src.x = (sprite->src.w * SELECTED);
+                else{
+                    sprite->src.x = (sprite->src.w * SELECTED);
+                }
             }
         }
     }
