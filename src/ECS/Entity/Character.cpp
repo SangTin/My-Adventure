@@ -5,8 +5,8 @@ Character::Character(int x, int y, int width, int height, double scale){
     animation = &add_component<AnimationComponent>(width, height);
 }
 
-void Character::add_action(const std::string name, const char* path, int frames, int speed){
-    animation->add_animation(name, path, frames, speed);
+void Character::add_action(const std::string name, const char* path, int speed){
+    animation->add_animation(name, path, speed);
 }
 
 void Character::play_action(const std::string name){

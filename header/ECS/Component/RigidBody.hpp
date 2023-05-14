@@ -14,16 +14,21 @@ class RigidBody : public Component{
         Vector2D m_Position;
     public:
         RigidBody();
-        void update() override;
+        void update(double dt);
         
-        inline void set_mass(double mass);
-        inline void set_gravity(double gravity);
+        void set_mass(double mass);
+        void set_gravity(double gravity);
 
-        inline void apply_force(Vector2D F);
-        inline void apply_forceX(double Fx);
-        inline void apply_forceY(double Fy);
-        inline void stop_force();
+        void apply_force(Vector2D F);
+        void apply_forceX(double Fx);
+        void apply_forceY(double Fy);
+        void stop_force();
         
-        inline void apply_friction(Vector2D F);
-        inline void stop_friction();
+        void apply_friction(Vector2D F);
+        void stop_friction();
+
+        double get_mass();
+        Vector2D get_position();
+        Vector2D get_velocity();
+        Vector2D get_accelaration();
 };

@@ -10,12 +10,14 @@
 int Game::width, Game::height;
 double Game::scale;
 bool Game::running;
+bool Game::focus = true;
 
 SDL_Renderer* Game::renderer = NULL;
 SDL_Window* Game::window = NULL;
 SDL_Event Game::event;
 SDL_Point Game::center;
 TTF_Font* Game::font = NULL;
+
 
 //Create game window named after title and size width x height (pixel)
 Game::Game(const char* title, int width, int height) {
@@ -35,11 +37,6 @@ Game::Game(const char* title, int width, int height) {
     width = width;
     height = height;
     center = {width / 2, height / 2};
-}
-
-//Return game's status (running or not)
-bool Game::is_running(){
-    return running;
 }
 
 //Change game window from windowed to fullscreen and vice versa
@@ -80,10 +77,10 @@ void Game::handle_events(){
 
         case SDL_WINDOWEVENT:
             if (event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
-                std::cout << "Continue!\n";
+                focus = true;
             }
             if (event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
-                std::cout << "Pause!\n";
+                focus = false;
             }
             break;
         }
@@ -107,6 +104,16 @@ bool Game::is_key_up(const SDL_KeyCode key){
 //End game process
 void Game::quit(){
     running = false;
+}
+
+//Return game's status (running or not)
+bool Game::is_running(){
+    return running;
+}
+
+//Return game focus' status (is focused or not)
+bool Game::is_focus(){
+    return focus;
 }
 
 //Close the game and release resources

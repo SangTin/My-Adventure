@@ -5,3 +5,4 @@
 #include "KeyboardController.hpp"
 #include "Sound.hpp"
 #include "AnimationComponent.hpp"
+#include "RigidBody.hpp"

@@ -12,7 +12,8 @@ class TransformComponent : public Component{
         
     public:
         TransformComponent(int x = 0, int y = 0, int width = 0, int height = 0, double scale = 1);
-
+        void update() override;
+        
         void change_position(Vector2D mPosition);
         void change_position(double x, double y);
         void centered();

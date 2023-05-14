@@ -25,13 +25,16 @@ void AnimationComponent::render(){
     TextureManager::draw(texture, &src, &transform->dst, flip);
 }
 
-void AnimationComponent::add_animation(const std::string name, SDL_Texture* texture, int frames, int fSpeed){
+void AnimationComponent::add_animation(const std::string name, SDL_Texture* texture, int fSpeed){
+    int textureWidth;
+    SDL_QueryTexture(texture, NULL, NULL, &textureWidth, NULL);
+    int frames = textureWidth / src.w;
     animations.emplace(name, new Animation(texture, frames, fSpeed));
 }
 
-void AnimationComponent::add_animation(const std::string name, const char* path, int frames, int fSpeed){
+void AnimationComponent::add_animation(const std::string name, const char* path, int fSpeed){
     SDL_Texture* texture = TextureManager::load_texture(path);
-    add_animation(name, texture, frames, fSpeed);
+    add_animation(name, texture, fSpeed);
 }
 
 void AnimationComponent::play(const std::string name){

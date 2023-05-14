@@ -6,7 +6,7 @@ class OptionMenu : public GameState{
         Entity *background;
         TransformComponent* transform;
         Slider *musicVolume, *sfxVolume;
-        ToggleButton *music, *sfx;
+        ClickedButton *music, *sfx;
         Mix_Chunk *sfxSound;
 
     public:

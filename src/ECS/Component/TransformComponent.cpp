@@ -7,10 +7,14 @@ TransformComponent::TransformComponent(int x, int y, int width, int height, doub
     this->scale = scale;
 }
 
-void TransformComponent::change_position(Vector2D mPosition){
-    position = mPosition;
+void TransformComponent::update(){
     dst.x = position.x;
     dst.y = position.y;
+}
+
+void TransformComponent::change_position(Vector2D mPosition){
+    position = mPosition;
+    update();
 }
 
 void TransformComponent::change_position(double x, double y){
@@ -29,6 +33,7 @@ Vector2D TransformComponent::get_position(){
 
 void TransformComponent::move(Vector2D s){
     position += s;
+    update();
 }
 
 void TransformComponent::move(double x, double y){

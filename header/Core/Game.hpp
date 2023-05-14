@@ -9,6 +9,7 @@ class Game{
         static int width, height;
         static double scale;
         static bool running;
+        static bool focus;
     public:
         static SDL_Renderer* renderer;
         static SDL_Window* window;
@@ -17,7 +18,6 @@ class Game{
         static TTF_Font* font;
 
         Game(const char* title, int width, int height);
-        bool is_running();
         void toggle_fullscreen();
         void update();
         void clear();
@@ -27,5 +27,7 @@ class Game{
         
         static bool is_key_down(const SDL_KeyCode key);
         static bool is_key_up(const SDL_KeyCode key);
+        static bool is_running();
+        static bool is_focus();
         static void quit();
 };

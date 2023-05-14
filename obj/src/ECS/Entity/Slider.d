@@ -56,7 +56,8 @@ obj/src/ECS/Entity/Slider.o: src/ECS/Entity/Slider.cpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
  header/ECS/Component/AnimationComponent.hpp \
- header/Core/TextureManager.hpp libraries/SDL2/include/SDL2/SDL_image.h \
+ header/ECS/Component/RigidBody.hpp header/Core/TextureManager.hpp \
+ libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h header/Core/SoundManager.hpp \
  header/UI/Mouse.hpp
 header/ECS/Entity/Slider.hpp:
@@ -121,6 +122,7 @@ header/ECS/Component/KeyboardController.hpp:
 header/ECS/Component/Sound.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 header/ECS/Component/AnimationComponent.hpp:
+header/ECS/Component/RigidBody.hpp:
 header/Core/TextureManager.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:

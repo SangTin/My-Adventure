@@ -30,7 +30,7 @@ class AnimationComponent : public SpriteComponent{
         void init() override;
         void update() override;
         void render() override;
-        void add_animation(const std::string name, SDL_Texture* texture, int frames, int fSpeed = 150);
-        void add_animation(const std::string name, const char* path, int frames, int fSpeed = 150);
+        void add_animation(const std::string name, SDL_Texture* texture, int fSpeed = 150);
+        void add_animation(const std::string name, const char* path, int fSpeed = 150);
         void play(const std::string name);
 };

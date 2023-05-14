@@ -28,6 +28,8 @@ void Menu::init(){
     //Soundtrack: Valorant-Bazooka-Badger-Theme.mp3
     soundtrack = SoundManager::load_music("assets/sound/menu/Valorant-Bazooka-Badger-Theme.mp3");
     SoundManager::play_music(soundtrack);
+
+    testPlayer = &manager.add_entity<Player>(0, 0, 32, 32, 2);
 }
 
 void Menu::update(){

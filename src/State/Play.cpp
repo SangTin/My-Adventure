@@ -27,10 +27,9 @@ void Play::init(){
 
 void Play::update(){
     GameState::update();
-    if (Game::is_key_down(SDLK_ESCAPE) || Pause->is_pressed()) pause();
+    if (!Game::is_focus() || Game::is_key_down(SDLK_ESCAPE) || Pause->is_pressed()) pause();
 }
 
 void Play::pause(){
     StateManager::add_state<PauseMenu>();
 }
-

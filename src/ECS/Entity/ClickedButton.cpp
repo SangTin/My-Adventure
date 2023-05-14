@@ -13,6 +13,9 @@ ClickedButton::ClickedButton(const char* path, int x, int y, int width, int heig
 
 void ClickedButton::init_sprite(const char* path, int width, int height){
     sprite = &add_component<SpriteComponent>(path, width, height);
+    int textureHeight;
+    SDL_QueryTexture(sprite->get_texture(), NULL, NULL, NULL, &textureHeight);
+    framesY = textureHeight / height;
 }
 
 void ClickedButton::add_sound(const std::string name, const char* path){
@@ -30,6 +33,7 @@ void ClickedButton::add_sound(const std::string name, const char* path){
 void ClickedButton::update(){
     Button::update();
     pressed = false;
+    sprite->src.y = curFrameY * sprite->src.h;
     if (SDL_PointInRect( Mouse::get_position(), &transform->dst )){
         if (!selected){
             selected = true;
@@ -49,6 +53,7 @@ void ClickedButton::update(){
                     if (sound){
                         sound->play_sound("Pressed");
                     }
+                    curFrameY = (curFrameY + 1) % framesY;
                     sprite->src.x = (sprite->src.w * DEFAULT);
                 }
                 else{
@@ -64,4 +69,8 @@ void ClickedButton::update(){
         }
         sprite->src.x = (sprite->src.w * DEFAULT);
     }
+}
+
+void ClickedButton::change_frameY(int y){
+    curFrameY = y;
 }

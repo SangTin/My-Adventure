@@ -17,3 +17,7 @@ void SpriteComponent::init(){
 void SpriteComponent::render(){
     TextureManager::draw(texture, &src, &transform->dst, flip);
 }
+
+SDL_Texture* SpriteComponent::get_texture(){
+    return texture;
+}

@@ -78,6 +78,14 @@ void SoundManager::toggle_music_mute(){
     Mix_VolumeMusic(musicVolume * !musicMuted);
 }
 
+bool SoundManager::sfx_is_muted(){
+    return sfxMuted;
+}
+
+bool SoundManager::music_is_muted(){
+    return musicMuted;
+}
+
 /**
  * Play music passed in
  * \param music the source music

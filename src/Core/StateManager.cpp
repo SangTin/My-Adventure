@@ -33,7 +33,7 @@ void StateManager::clear(){
 }
 
 void StateManager::clear_before(){
-    for (int s = 0; s < states.size() - 1; ++s){
+    for (int s = 0; s < (int)states.size() - 1; ++s){
         states[s]->destroy();
     }
 }

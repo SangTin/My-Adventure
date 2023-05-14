@@ -61,13 +61,16 @@ void Slider::update(){
         {
         case sfxID:
             percent = SoundManager::get_sfx_volume();
+            curStep = (percent + stepPercent - 1) / stepPercent;
+            SoundManager::set_sfx_volume(stepPercent * curStep);
             break;
         
         case musicID:
             percent = SoundManager::get_music_volume();
+            curStep = (percent + stepPercent - 1) / stepPercent;
+            SoundManager::set_music_volume(stepPercent * curStep);
             break;
         }
-        curStep = (percent + stepPercent - 1) / stepPercent;
     }
     
     for (int i = 0; i < numSteps; ++i){

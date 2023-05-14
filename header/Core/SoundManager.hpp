@@ -14,6 +14,8 @@ class SoundManager{
         static int get_music_volume();
         static void toggle_sfx_mute();
         static void toggle_music_mute();
+        static bool sfx_is_muted();
+        static bool music_is_muted();
         static void play_music(Mix_Music* music);
         static void play_sound(Mix_Chunk* chunk);
         static void stop_music();

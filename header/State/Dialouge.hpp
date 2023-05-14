@@ -55,7 +55,7 @@ class Dialouge : public GameState{
             const int CAT_X = transform->dst.x + 13 * SCALE;
             const int CAT_Y = transform->dst.y + 13 * SCALE;
             Cat = &manager.add_entity<Character>(CAT_X, CAT_Y, 32, 32, 3);
-            Cat->add_action("Idle", "assets/img/states/Dialouge/CatCharacter.png", 4, 200);
+            Cat->add_action("Idle", "assets/img/states/Dialouge/CatCharacter.png", 200);
             Cat->play_action("Idle");
         }
 

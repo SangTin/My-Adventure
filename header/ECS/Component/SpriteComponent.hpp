@@ -17,4 +17,5 @@ class SpriteComponent : public Component{
         virtual ~SpriteComponent();
         void init() override;
         void render() override;
+        SDL_Texture* get_texture();
 };
