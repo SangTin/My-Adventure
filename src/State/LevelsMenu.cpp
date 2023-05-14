@@ -1,5 +1,5 @@
 #include <State/States.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <Core/TextureManager.hpp>
 #include <math.h> //log10
 #include <string>
@@ -39,7 +39,7 @@ void LevelsMenu::init(){
 
 void LevelsMenu::update(){
     GameState::update();
-    if (Game::is_key_down(SDLK_ESCAPE)){
+    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE)){
         destroy();
     }
     for (int r = 0; r < LEVEL_ROWS; ++r){

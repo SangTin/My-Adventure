@@ -1,6 +1,6 @@
 #include <State/States.hpp>
 #include <Core/SoundManager.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <State/Dialouge.hpp>
 
 void Menu::init(){
@@ -37,7 +37,7 @@ void Menu::update(){
     GameState::update();
     if (Play->is_pressed()) play();
     if (Option->is_pressed()) option();
-    if (Game::is_key_down(SDLK_ESCAPE) || Quit->is_pressed()) quit();
+    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || Quit->is_pressed()) quit();
 
 }
 

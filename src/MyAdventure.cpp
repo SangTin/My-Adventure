@@ -2,8 +2,8 @@
 #include <Core/Base.hpp>
 #include <Core/Game.hpp>
 #include <Core/GameTimer.hpp>
-#include <Core/Vector2D.hpp>
 #include <State/States.hpp>
+#include <Core/HandleEvent.hpp>
 
 const int FPS = 144;
 const int FPSTime = 1000.0 / FPS;
@@ -37,7 +37,7 @@ int main(int argc, char* argv[]){
     Mix_AllocateChannels(255);
 
     while (window.is_running()){
-        window.handle_events();
+        HandleEvent::listen();
         window.update();
         window.clear();
         window.render();

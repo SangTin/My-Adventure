@@ -10,11 +10,9 @@
 int Game::width, Game::height;
 double Game::scale;
 bool Game::running;
-bool Game::focus = true;
 
 SDL_Renderer* Game::renderer = NULL;
 SDL_Window* Game::window = NULL;
-SDL_Event Game::event;
 SDL_Point Game::center;
 TTF_Font* Game::font = NULL;
 
@@ -66,41 +64,6 @@ void Game::render(){
     SDL_RenderPresent(renderer);
 }
 
-//Handle events from keyboard and mouse
-void Game::handle_events(){
-    if (SDL_PollEvent(&event)){
-        switch (event.type)
-        {
-        case SDL_QUIT:
-            quit();
-            break;
-
-        case SDL_WINDOWEVENT:
-            if (event.window.event == SDL_WINDOWEVENT_FOCUS_GAINED){
-                focus = true;
-            }
-            if (event.window.event == SDL_WINDOWEVENT_FOCUS_LOST){
-                focus = false;
-            }
-            break;
-        }
-    }
-}
-
-//Return given key's status (is pressed down or not)
-bool Game::is_key_down(const SDL_KeyCode key){
-    if (event.type != SDL_KEYDOWN) return false;
-    if (event.key.keysym.sym != key) return false;
-    return true;
-}
-
-//Return given key's status (is released or not)
-bool Game::is_key_up(const SDL_KeyCode key){
-    if (event.type != SDL_KEYUP) return false;
-    if (event.key.keysym.sym != key) return false;
-    return true;
-}
-
 //End game process
 void Game::quit(){
     running = false;
@@ -109,11 +72,6 @@ void Game::quit(){
 //Return game's status (running or not)
 bool Game::is_running(){
     return running;
-}
-
-//Return game focus' status (is focused or not)
-bool Game::is_focus(){
-    return focus;
 }
 
 //Close the game and release resources

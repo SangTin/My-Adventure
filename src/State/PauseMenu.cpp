@@ -1,5 +1,5 @@
 #include <State/States.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <State/Dialouge.hpp>
 
 #define SCALE 3
@@ -33,7 +33,7 @@ void PauseMenu::update(){
     if (Home->is_pressed()) home();
     if (Option->is_pressed()) option();
     if (Quit->is_pressed()) quit();
-    if (Game::is_key_down(SDLK_ESCAPE) || Continue->is_pressed()) play();
+    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || Continue->is_pressed()) play();
 }
 
 void PauseMenu::play(){

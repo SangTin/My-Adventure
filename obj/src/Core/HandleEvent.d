@@ -1,7 +1,5 @@
-obj/src/State/Menu.o: src/State/Menu.cpp header/State/States.hpp \
- header/Core/StateManager.hpp header/State/GameState.hpp \
- header/ECS/Component/Components.hpp header/ECS/ECS.hpp \
- header/Core/Base.hpp libraries/SDL2/include/SDL2/SDL.h \
+obj/src/Core/HandleEvent.o: src/Core/HandleEvent.cpp \
+ header/Core/HandleEvent.hpp libraries/SDL2/include/SDL2/SDL.h \
  libraries/SDL2/include/SDL2/SDL_main.h \
  libraries/SDL2/include/SDL2/SDL_stdinc.h \
  libraries/SDL2/include/SDL2/SDL_config.h \
@@ -50,30 +48,12 @@ obj/src/State/Menu.o: src/State/Menu.cpp header/State/States.hpp \
  libraries/SDL2/include/SDL2/SDL_timer.h \
  libraries/SDL2/include/SDL2/SDL_version.h \
  libraries/SDL2/include/SDL2/SDL_locale.h \
- libraries/SDL2/include/SDL2/SDL_misc.h \
- header/ECS/Component/TransformComponent.hpp header/Core/Vector2D.hpp \
- header/ECS/Component/SpriteComponent.hpp \
- header/ECS/Component/KeyboardController.hpp \
- header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
- header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp header/ECS/Entity/Entities.hpp \
- header/ECS/Entity/Button.hpp header/ECS/Entity/ClickedButton.hpp \
- header/ECS/Entity/Character.hpp header/ECS/Entity/Slider.hpp \
- header/ECS/Entity/Player.hpp header/State/Menu.hpp \
- header/State/LevelsMenu.hpp header/State/OptionMenu.hpp \
- header/State/Play.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp header/Core/SoundManager.hpp \
- header/Core/HandleEvent.hpp header/Core/Game.hpp \
+ libraries/SDL2/include/SDL2/SDL_misc.h header/Core/Game.hpp \
  libraries/SDL2/include/SDL2/SDL_image.h \
- libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h \
- header/State/Dialouge.hpp header/Core/FontManager.hpp \
- header/UI/Mouse.hpp
-header/State/States.hpp:
-header/Core/StateManager.hpp:
-header/State/GameState.hpp:
-header/ECS/Component/Components.hpp:
-header/ECS/ECS.hpp:
-header/Core/Base.hpp:
+ libraries/SDL2/include/SDL2/SDL.h \
+ libraries/SDL2/include/SDL2/SDL_mixer.h \
+ libraries/SDL2/include/SDL2/SDL_ttf.h
+header/Core/HandleEvent.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
 libraries/SDL2/include/SDL2/SDL_stdinc.h:
@@ -124,32 +104,8 @@ libraries/SDL2/include/SDL2/SDL_timer.h:
 libraries/SDL2/include/SDL2/SDL_version.h:
 libraries/SDL2/include/SDL2/SDL_locale.h:
 libraries/SDL2/include/SDL2/SDL_misc.h:
-header/ECS/Component/TransformComponent.hpp:
-header/Core/Vector2D.hpp:
-header/ECS/Component/SpriteComponent.hpp:
-header/ECS/Component/KeyboardController.hpp:
-header/ECS/Component/Sound.hpp:
-libraries/SDL2/include/SDL2/SDL_mixer.h:
-header/ECS/Component/AnimationComponent.hpp:
-header/ECS/Component/RigidBody.hpp:
-header/ECS/Entity/Entities.hpp:
-header/ECS/Entity/Button.hpp:
-header/ECS/Entity/ClickedButton.hpp:
-header/ECS/Entity/Character.hpp:
-header/ECS/Entity/Slider.hpp:
-header/ECS/Entity/Player.hpp:
-header/State/Menu.hpp:
-header/State/LevelsMenu.hpp:
-header/State/OptionMenu.hpp:
-header/State/Play.hpp:
-header/State/PauseMenu.hpp:
-header/State/QuitGame.hpp:
-header/Core/SoundManager.hpp:
-header/Core/HandleEvent.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
+libraries/SDL2/include/SDL2/SDL_mixer.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
-header/State/Dialouge.hpp:
-header/Core/FontManager.hpp:
-header/UI/Mouse.hpp:

@@ -1,5 +1,5 @@
 #include <State/States.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <string>
 #include <charconv> //to_chars
 #include <math.h> //log10
@@ -27,7 +27,7 @@ void Play::init(){
 
 void Play::update(){
     GameState::update();
-    if (!Game::is_focus() || Game::is_key_down(SDLK_ESCAPE) || Pause->is_pressed()) pause();
+    if (HandleEvent::lose_focus() || HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || Pause->is_pressed()) pause();
 }
 
 void Play::pause(){

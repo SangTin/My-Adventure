@@ -52,11 +52,10 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  libraries/SDL2/include/SDL2/SDL.h \
  libraries/SDL2/include/SDL2/SDL_mixer.h \
  libraries/SDL2/include/SDL2/SDL_ttf.h header/Core/GameTimer.hpp \
- header/Core/Vector2D.hpp header/State/States.hpp \
- header/Core/StateManager.hpp header/State/GameState.hpp \
- header/ECS/Component/Components.hpp header/ECS/ECS.hpp \
- header/ECS/Component/TransformComponent.hpp \
- header/ECS/Component/SpriteComponent.hpp \
+ header/State/States.hpp header/Core/StateManager.hpp \
+ header/State/GameState.hpp header/ECS/Component/Components.hpp \
+ header/ECS/ECS.hpp header/ECS/Component/TransformComponent.hpp \
+ header/Core/Vector2D.hpp header/ECS/Component/SpriteComponent.hpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp \
  header/ECS/Component/AnimationComponent.hpp \
@@ -66,7 +65,7 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  header/ECS/Entity/Player.hpp header/State/Menu.hpp \
  header/State/LevelsMenu.hpp header/State/OptionMenu.hpp \
  header/State/Play.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp
+ header/State/QuitGame.hpp header/Core/HandleEvent.hpp
 header/Core/Base.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -124,13 +123,13 @@ libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
 header/Core/GameTimer.hpp:
-header/Core/Vector2D.hpp:
 header/State/States.hpp:
 header/Core/StateManager.hpp:
 header/State/GameState.hpp:
 header/ECS/Component/Components.hpp:
 header/ECS/ECS.hpp:
 header/ECS/Component/TransformComponent.hpp:
+header/Core/Vector2D.hpp:
 header/ECS/Component/SpriteComponent.hpp:
 header/ECS/Component/KeyboardController.hpp:
 header/ECS/Component/Sound.hpp:
@@ -148,3 +147,4 @@ header/State/OptionMenu.hpp:
 header/State/Play.hpp:
 header/State/PauseMenu.hpp:
 header/State/QuitGame.hpp:
+header/Core/HandleEvent.hpp:

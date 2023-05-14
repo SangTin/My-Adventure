@@ -62,8 +62,8 @@ obj/src/State/OptionMenu.o: src/State/OptionMenu.cpp \
  header/ECS/Entity/Player.hpp header/State/Menu.hpp \
  header/State/LevelsMenu.hpp header/State/OptionMenu.hpp \
  header/State/Play.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp header/Core/Game.hpp \
- libraries/SDL2/include/SDL2/SDL_image.h \
+ header/State/QuitGame.hpp header/Core/HandleEvent.hpp \
+ header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h \
  header/Core/SoundManager.hpp header/UI/Mouse.hpp
 header/State/States.hpp:
@@ -142,6 +142,7 @@ header/State/OptionMenu.hpp:
 header/State/Play.hpp:
 header/State/PauseMenu.hpp:
 header/State/QuitGame.hpp:
+header/Core/HandleEvent.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:

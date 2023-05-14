@@ -1,7 +1,7 @@
 #pragma once
 #include "States.hpp"
 #include <State/Dialouge.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <Core/FontManager.hpp>
 #include <UI/Mouse.hpp>
     
@@ -62,10 +62,10 @@ class Dialouge : public GameState{
         void update() override{
             GameState::update();
 
-            if (Game::is_key_down(SDLK_ESCAPE) || No->is_pressed()){
+            if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || No->is_pressed()){
                 destroy();
             }
-            if (Game::is_key_down(SDLK_RETURN) || Yes->is_pressed()){
+            if (HandleEvent::get_key_down(SDL_SCANCODE_RETURN) || Yes->is_pressed()){
                 StateManager::add_state<T>();
                 activated = true;
             }
@@ -80,7 +80,7 @@ class Dialouge : public GameState{
             FontManager::draw_text(message, &textDst, 15, NULL, {107, 75, 91, 255});
         }
 
-        bool is_activated(){
+        inline bool is_activated(){
             return activated;
         }
 };

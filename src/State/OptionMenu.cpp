@@ -1,6 +1,6 @@
 #include <State/States.hpp>
 #include <Core/Base.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 #include <Core/SoundManager.hpp>
 #include <UI/Mouse.hpp>
 
@@ -35,7 +35,7 @@ void OptionMenu::init(){
 void OptionMenu::update(){
     int sfxVolumeOld = SoundManager::get_sfx_volume();
     GameState::update();
-    if (Game::is_key_down(SDLK_ESCAPE)){
+    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE)){
         destroy();
     }
     if (Mouse::get_button_state(SDL_BUTTON_LEFT) && !SDL_PointInRect( Mouse::get_position(), &transform->dst )){

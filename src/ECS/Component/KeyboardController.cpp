@@ -1,9 +1,9 @@
 #include <ECS/Component/KeyboardController.hpp>
-#include <Core/Game.hpp>
+#include <Core/HandleEvent.hpp>
 
 void KeyboardController::update(){
-    if (Game::event.type == SDL_KEYDOWN){
-        switch (Game::event.key.keysym.sym)
+    if (HandleEvent::event.type == SDL_KEYDOWN){
+        switch (HandleEvent::event.key.keysym.sym)
         {
         case SDLK_UP:
         case SDLK_w:
@@ -23,8 +23,8 @@ void KeyboardController::update(){
             break;
         }
     }
-    if (Game::event.type == SDL_KEYUP){
-        switch (Game::event.key.keysym.sym)
+    if (HandleEvent::event.type == SDL_KEYUP){
+        switch (HandleEvent::event.key.keysym.sym)
         {
         case SDLK_UP:
         case SDLK_w:

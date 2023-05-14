@@ -9,11 +9,9 @@ class Game{
         static int width, height;
         static double scale;
         static bool running;
-        static bool focus;
     public:
         static SDL_Renderer* renderer;
         static SDL_Window* window;
-        static SDL_Event event;
         static SDL_Point center;
         static TTF_Font* font;
 
@@ -22,12 +20,8 @@ class Game{
         void update();
         void clear();
         void render();
-        void handle_events();
         void close();
         
-        static bool is_key_down(const SDL_KeyCode key);
-        static bool is_key_up(const SDL_KeyCode key);
         static bool is_running();
-        static bool is_focus();
         static void quit();
 };

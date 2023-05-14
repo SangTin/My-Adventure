@@ -50,8 +50,8 @@ obj/src/ECS/Component/KeyboardController.o: \
  libraries/SDL2/include/SDL2/SDL_timer.h \
  libraries/SDL2/include/SDL2/SDL_version.h \
  libraries/SDL2/include/SDL2/SDL_locale.h \
- libraries/SDL2/include/SDL2/SDL_misc.h header/Core/Game.hpp \
- libraries/SDL2/include/SDL2/SDL_image.h \
+ libraries/SDL2/include/SDL2/SDL_misc.h header/Core/HandleEvent.hpp \
+ header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h \
  libraries/SDL2/include/SDL2/SDL_mixer.h \
  libraries/SDL2/include/SDL2/SDL_ttf.h
@@ -108,6 +108,7 @@ libraries/SDL2/include/SDL2/SDL_timer.h:
 libraries/SDL2/include/SDL2/SDL_version.h:
 libraries/SDL2/include/SDL2/SDL_locale.h:
 libraries/SDL2/include/SDL2/SDL_misc.h:
+header/Core/HandleEvent.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
