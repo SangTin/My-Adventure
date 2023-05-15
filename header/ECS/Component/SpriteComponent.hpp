@@ -10,10 +10,13 @@ class SpriteComponent : public Component{
     public:
         SDL_Rect src;
         SDL_RendererFlip flip = SDL_FLIP_NONE;
+        bool toCamera = false;
 
     public:
         SpriteComponent() = default;
-        SpriteComponent(const char* path, int width, int height);
+        SpriteComponent(const char* path, int width, int height, bool toCamera = false);
+        SpriteComponent(SDL_Texture* texture, int width, int height, bool toCamera = false);
+        SpriteComponent(SDL_Texture* texture, SDL_Rect src, bool toCamera = false);
         virtual ~SpriteComponent();
         void init() override;
         void render() override;

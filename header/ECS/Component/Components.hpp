@@ -6,3 +6,4 @@
 #include "Sound.hpp"
 #include "AnimationComponent.hpp"
 #include "RigidBody.hpp"
+#include "ColliderComponent.hpp"

@@ -1,5 +1,6 @@
 #pragma once
 #include <ECS/ECS.hpp>
+#include <Core/Vector2D.hpp>
 #include <map>
 
 class KeyboardController : public Component{
@@ -7,4 +8,5 @@ class KeyboardController : public Component{
         std::map<SDL_KeyCode, int> keys;
     public:
         void update() override;
+        Vector2D get_direction();
 };

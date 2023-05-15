@@ -45,6 +45,8 @@
 #include "common/DecompressorContainer.hpp"
 #include "misc/MemoryStream.hpp"
 #include "tiled/Map.hpp"
+#include "tiled/TiledEnum.hpp"
+#include "tiled/TiledClass.hpp"
 #include "tiled/Project.hpp"
 
 
@@ -55,8 +57,10 @@ namespace tson
         public:
             #ifdef JSON11_IS_DEFINED
             inline explicit Tileson(std::unique_ptr<tson::IJson> jsonParser = std::make_unique<tson::Json11>(), bool includeBase64Decoder = true);
+            inline explicit Tileson(tson::Project *project, std::unique_ptr<tson::IJson> jsonParser = std::make_unique<tson::Json11>(), bool includeBase64Decoder = true);
             #else
             inline explicit Tileson(std::unique_ptr<tson::IJson> jsonParser, bool includeBase64Decoder = true);
+            inline explicit Tileson(tson::Project *project, std::unique_ptr<tson::IJson> jsonParser, bool includeBase64Decoder = true);
             #endif
 
             inline std::unique_ptr<tson::Map> parse(const fs::path &path, std::unique_ptr<IDecompressor<std::vector<uint8_t>, std::vector<uint8_t>>> decompressor = nullptr);
@@ -67,6 +71,7 @@ namespace tson
             inline std::unique_ptr<tson::Map> parseJson();
             std::unique_ptr<tson::IJson> m_json;
             tson::DecompressorContainer m_decompressors;
+            tson::Project *m_project {nullptr};
     };
 }
 
@@ -77,6 +82,13 @@ namespace tson
  */
 tson::Tileson::Tileson(std::unique_ptr<tson::IJson> jsonParser, bool includeBase64Decoder) : m_json {std::move(jsonParser)}
 {
+    if(includeBase64Decoder)
+        m_decompressors.add<Base64Decompressor>();
+}
+
+tson::Tileson::Tileson(tson::Project *project, std::unique_ptr<tson::IJson> jsonParser, bool includeBase64Decoder) : m_json {std::move(jsonParser)}
+{
+    m_project = project;
     if(includeBase64Decoder)
         m_decompressors.add<Base64Decompressor>();
 }
@@ -97,17 +109,19 @@ std::unique_ptr<tson::Map> tson::Tileson::parse(const fs::path &path, std::uniqu
         result = (decompressed.empty()) ? false : true;
         if(!result)
             return std::make_unique<tson::Map>(tson::ParseStatus::DecompressionError, "Error during decompression");
+
         result = m_json->parse(&decompressed[0], decompressed.size());
+
         if(result)
-            return std::move(parseJson());
+            return parseJson();
     }
     else if(m_json->parse(path))
     {
-        return std::move(parseJson());
+        return parseJson();
     }
 
     std::string msg = "File not found: ";
-    msg += std::string(path.u8string());
+    msg += std::string(path.generic_string());
     return std::make_unique<tson::Map>(tson::ParseStatus::FileNotFound, msg);
 }
 
@@ -136,7 +150,7 @@ std::unique_ptr<tson::Map> tson::Tileson::parse(const void *data, size_t size, s
         return std::make_unique<tson::Map>(tson::ParseStatus::ParseError, "Memory error");
 
 
-    return std::move(parseJson());
+    return parseJson();
 }
 
 /*!
@@ -148,8 +162,8 @@ std::unique_ptr<tson::Map> tson::Tileson::parseJson()
 {
     std::unique_ptr<tson::Map> map = std::make_unique<tson::Map>();
 
-    if(map->parse(*m_json, &m_decompressors))
-        return std::move(map);
+    if(map->parse(*m_json, &m_decompressors, m_project))
+        return map;
 
     return std::make_unique<tson::Map> (tson::ParseStatus::MissingData, "Missing map data...");
 }
@@ -165,7 +179,5 @@ tson::DecompressorContainer *tson::Tileson::decompressors()
 {
     return &m_decompressors;
 }
-
-
 
 #endif //TILESON_TILESON_PARSER_HPP

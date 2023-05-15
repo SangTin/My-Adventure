@@ -6,5 +6,8 @@ class GameTimer{
 
     public:
         static void update_timer();
-        static double get_DT();
+        
+        static inline double get_DT(){
+            return m_DeltaTime;
+        }
 };

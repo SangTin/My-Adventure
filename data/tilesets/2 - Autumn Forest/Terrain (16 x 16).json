@@ -1,0 +1,14 @@
+{ "columns":17,
+ "image":"data/tilesets/2 - Autumn Forest/Terrain (16 x 16).png",
+ "imageheight":160,
+ "imagewidth":272,
+ "margin":0,
+ "name":"Terrain (16 x 16)",
+ "spacing":0,
+ "tilecount":170,
+ "tiledversion":"1.10.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

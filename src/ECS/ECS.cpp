@@ -41,12 +41,22 @@ void Entity::del_group(Group oGroup){
 //End class Entity
 
 //Start class EntityManager
+EntityManager::~EntityManager(){
+    clear();
+}
+
 void EntityManager::update(){
     for (auto &e : entities) e->update();
 }
 void EntityManager::render(){
-    for (auto &e : entities) e->render();
+    for (auto& e : entities) e->render();
 }
+
+void EntityManager::clear(){
+    for (auto& e : entities) e->destroy();
+    refresh();
+}
+
 void EntityManager::refresh(){
     for (auto i(0u); i < maxGroups; ++i){
         auto& v(groupedEntities[i]);

@@ -17,8 +17,9 @@ TTF_Font* FontManager::load_font(const char* f_path, int size){
     return font;
 }
 
-TTF_Text FontManager::load_text(const std::string text, int width, TTF_Font* font, SDL_Color color){
+TTF_Text* FontManager::load_text(const std::string text, int width, int size, TTF_Font* font, SDL_Color color){
     if (!font) font = Game::font;
+    TTF_SetFontSize(font, size);
 
     SDL_Surface* surface = NULL;
     surface = TTF_RenderText_Solid_Wrapped(font, text.c_str(), color, width);
@@ -26,7 +27,7 @@ TTF_Text FontManager::load_text(const std::string text, int width, TTF_Font* fon
         std::cout << "Failed to load text! SDL_ttf Error: " << TTF_GetError() << '\n';
     }
     SDL_Texture* texture = TextureManager::load_texture(surface);
-    TTF_Text res(text, texture, surface->w, surface->h);
+    TTF_Text *res = new TTF_Text(text, texture, surface->w, surface->h);
     SDL_FreeSurface(surface);
     return res;
 }
@@ -37,8 +38,7 @@ void FontManager::draw_text(TTF_Text* text, SDL_Rect* dst){
 
 void FontManager::draw_text(const std::string mText, SDL_Rect* dst, int size, TTF_Font* font, SDL_Color color){
     if (!font) font = Game::font;
-    TTF_SetFontSize(font, size);
 
-    TTF_Text text = load_text(mText, dst->w, font, color);
-    draw_text(&text, dst);
+    TTF_Text* text = load_text(mText, dst->w, size, font, color);
+    draw_text(text, dst);
 }

@@ -108,12 +108,12 @@ namespace tson
                 m_json = nullptr;
                 if (fs::exists(path) && fs::is_regular_file(path))
                 {
-                    std::ifstream file(path.u8string());
+                    std::ifstream file(path.generic_string());
                     std::string str;
                     m_path = path.parent_path();
 
                     file.seekg(0, std::ios::end);
-                    str.reserve(file.tellg());
+                    str.reserve(static_cast<size_t>(file.tellg()));
                     file.seekg(0, std::ios::beg);
 
                     str.assign((std::istreambuf_iterator<char>(file)),
@@ -316,7 +316,6 @@ namespace tson
             }
 
             //Owner values
-            char *m_endptr;
             std::unique_ptr<json11::Json> m_data = nullptr; //Only used if this is the owner json!
 
             const json11::Json *m_json = nullptr;

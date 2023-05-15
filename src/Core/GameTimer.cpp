@@ -14,7 +14,3 @@ void GameTimer::update_timer(){
     }
     m_OldTime = SDL_GetTicks();
 }
-
-double GameTimer::get_DT(){
-    return m_DeltaTime;
-}

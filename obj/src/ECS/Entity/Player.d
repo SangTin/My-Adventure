@@ -56,8 +56,55 @@ obj/src/ECS/Entity/Player.o: src/ECS/Entity/Player.cpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
  header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp header/Core/Files.hpp \
- header/Core/GameTimer.hpp
+ header/ECS/Component/RigidBody.hpp \
+ header/ECS/Component/ColliderComponent.hpp header/Core/Files.hpp \
+ header/Core/GameTimer.hpp header/Core/HandleEvent.hpp \
+ header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
+ libraries/SDL2/include/SDL2/SDL.h libraries/SDL2/include/SDL2/SDL_ttf.h \
+ header/UI/Camera.hpp header/Core/Collision.hpp header/Map/GameMap.hpp \
+ libraries/Tileson/tileson.hpp libraries/Tileson/external/json11.hpp \
+ libraries/Tileson/tileson_parser.hpp libraries/Tileson/common/Tools.hpp \
+ libraries/Tileson/common/Base64Decompressor.hpp \
+ libraries/Tileson/common/../interfaces/IDecompressor.hpp \
+ libraries/Tileson/common/Lzma.hpp \
+ libraries/Tileson/common/DecompressorContainer.hpp \
+ libraries/Tileson/misc/MemoryStream.hpp \
+ libraries/Tileson/misc/MemoryBuffer.hpp libraries/Tileson/tiled/Map.hpp \
+ libraries/Tileson/tiled/../objects/Color.hpp \
+ libraries/Tileson/tiled/../objects/Vector2.hpp \
+ libraries/Tileson/tiled/../interfaces/IJson.hpp \
+ libraries/Tileson/tiled/../json/NlohmannJson.hpp \
+ libraries/Tileson/tiled/../json/PicoJson.hpp \
+ libraries/Tileson/tiled/../json/Json11.hpp \
+ libraries/Tileson/tiled/Layer.hpp libraries/Tileson/tiled/Chunk.hpp \
+ libraries/Tileson/tiled/Object.hpp \
+ libraries/Tileson/tiled/../objects/PropertyCollection.hpp \
+ libraries/Tileson/tiled/../objects/Property.hpp \
+ libraries/Tileson/tiled/../objects/../common/Enums.hpp \
+ libraries/Tileson/tiled/../objects/../common/EnumBitflags.hpp \
+ libraries/Tileson/tiled/../objects/Color.hpp \
+ libraries/Tileson/tiled/Text.hpp \
+ libraries/Tileson/tiled/../common/Enums.hpp \
+ libraries/Tileson/tiled/../objects/TileObject.hpp \
+ libraries/Tileson/tiled/../objects/../objects/Rect.hpp \
+ libraries/Tileson/tiled/../objects/Property.hpp \
+ libraries/Tileson/tiled/../objects/FlaggedTile.hpp \
+ libraries/Tileson/tiled/Tileset.hpp \
+ libraries/Tileson/tiled/Transformations.hpp \
+ libraries/Tileson/tiled/WangSet.hpp \
+ libraries/Tileson/tiled/WangColor.hpp \
+ libraries/Tileson/tiled/WangTile.hpp libraries/Tileson/tiled/Tile.hpp \
+ libraries/Tileson/tiled/Frame.hpp libraries/Tileson/tiled/Animation.hpp \
+ libraries/Tileson/tiled/../objects/Rect.hpp \
+ libraries/Tileson/tiled/Terrain.hpp libraries/Tileson/tiled/Grid.hpp \
+ libraries/Tileson/tiled/TiledEnum.hpp \
+ libraries/Tileson/tiled/TiledClass.hpp \
+ libraries/Tileson/tiled/Project.hpp libraries/Tileson/tiled/World.hpp \
+ libraries/Tileson/tiled/../objects/WorldMapData.hpp \
+ libraries/Tileson/tiled/../objects/ProjectPropertyTypes.hpp \
+ libraries/Tileson/tiled/../objects/ProjectFolder.hpp \
+ libraries/Tileson/tiled/../objects/ProjectData.hpp \
+ libraries/Tileson/common/tileson_forward.hpp
 header/ECS/Entity/Player.hpp:
 header/ECS/Entity/Character.hpp:
 header/ECS/Component/Components.hpp:
@@ -121,5 +168,65 @@ header/ECS/Component/Sound.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 header/ECS/Component/AnimationComponent.hpp:
 header/ECS/Component/RigidBody.hpp:
+header/ECS/Component/ColliderComponent.hpp:
 header/Core/Files.hpp:
 header/Core/GameTimer.hpp:
+header/Core/HandleEvent.hpp:
+header/Core/Game.hpp:
+libraries/SDL2/include/SDL2/SDL_image.h:
+libraries/SDL2/include/SDL2/SDL.h:
+libraries/SDL2/include/SDL2/SDL_ttf.h:
+header/UI/Camera.hpp:
+header/Core/Collision.hpp:
+header/Map/GameMap.hpp:
+libraries/Tileson/tileson.hpp:
+libraries/Tileson/external/json11.hpp:
+libraries/Tileson/tileson_parser.hpp:
+libraries/Tileson/common/Tools.hpp:
+libraries/Tileson/common/Base64Decompressor.hpp:
+libraries/Tileson/common/../interfaces/IDecompressor.hpp:
+libraries/Tileson/common/Lzma.hpp:
+libraries/Tileson/common/DecompressorContainer.hpp:
+libraries/Tileson/misc/MemoryStream.hpp:
+libraries/Tileson/misc/MemoryBuffer.hpp:
+libraries/Tileson/tiled/Map.hpp:
+libraries/Tileson/tiled/../objects/Color.hpp:
+libraries/Tileson/tiled/../objects/Vector2.hpp:
+libraries/Tileson/tiled/../interfaces/IJson.hpp:
+libraries/Tileson/tiled/../json/NlohmannJson.hpp:
+libraries/Tileson/tiled/../json/PicoJson.hpp:
+libraries/Tileson/tiled/../json/Json11.hpp:
+libraries/Tileson/tiled/Layer.hpp:
+libraries/Tileson/tiled/Chunk.hpp:
+libraries/Tileson/tiled/Object.hpp:
+libraries/Tileson/tiled/../objects/PropertyCollection.hpp:
+libraries/Tileson/tiled/../objects/Property.hpp:
+libraries/Tileson/tiled/../objects/../common/Enums.hpp:
+libraries/Tileson/tiled/../objects/../common/EnumBitflags.hpp:
+libraries/Tileson/tiled/../objects/Color.hpp:
+libraries/Tileson/tiled/Text.hpp:
+libraries/Tileson/tiled/../common/Enums.hpp:
+libraries/Tileson/tiled/../objects/TileObject.hpp:
+libraries/Tileson/tiled/../objects/../objects/Rect.hpp:
+libraries/Tileson/tiled/../objects/Property.hpp:
+libraries/Tileson/tiled/../objects/FlaggedTile.hpp:
+libraries/Tileson/tiled/Tileset.hpp:
+libraries/Tileson/tiled/Transformations.hpp:
+libraries/Tileson/tiled/WangSet.hpp:
+libraries/Tileson/tiled/WangColor.hpp:
+libraries/Tileson/tiled/WangTile.hpp:
+libraries/Tileson/tiled/Tile.hpp:
+libraries/Tileson/tiled/Frame.hpp:
+libraries/Tileson/tiled/Animation.hpp:
+libraries/Tileson/tiled/../objects/Rect.hpp:
+libraries/Tileson/tiled/Terrain.hpp:
+libraries/Tileson/tiled/Grid.hpp:
+libraries/Tileson/tiled/TiledEnum.hpp:
+libraries/Tileson/tiled/TiledClass.hpp:
+libraries/Tileson/tiled/Project.hpp:
+libraries/Tileson/tiled/World.hpp:
+libraries/Tileson/tiled/../objects/WorldMapData.hpp:
+libraries/Tileson/tiled/../objects/ProjectPropertyTypes.hpp:
+libraries/Tileson/tiled/../objects/ProjectFolder.hpp:
+libraries/Tileson/tiled/../objects/ProjectData.hpp:
+libraries/Tileson/common/tileson_forward.hpp:

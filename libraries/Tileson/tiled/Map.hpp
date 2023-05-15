@@ -26,8 +26,8 @@ namespace tson
         public:
             inline Map() = default;
             inline Map(ParseStatus status, std::string description);
-            inline explicit Map(IJson &json, tson::DecompressorContainer *decompressors);
-            inline bool parse(IJson &json, tson::DecompressorContainer *decompressors);
+            inline explicit Map(IJson &json, tson::DecompressorContainer *decompressors, tson::Project *project);
+            inline bool parse(IJson &json, tson::DecompressorContainer *decompressors, tson::Project *project);
 
             [[nodiscard]] inline const Colori &getBackgroundColor() const;
             [[nodiscard]] inline const Vector2i &getSize() const;
@@ -42,6 +42,9 @@ namespace tson
             [[nodiscard]] inline const std::string &getTiledVersion() const;
             [[nodiscard]] inline const Vector2i &getTileSize() const;
             [[nodiscard]] inline const std::string &getType() const;
+            [[nodiscard]] inline const std::string &getClassType() const;
+            [[nodiscard]] inline tson::TiledClass *getClass(); /*! Declared in tileson_forward.hpp */
+            [[nodiscard]] inline const Vector2f &getParallaxOrigin() const;
             //[[nodiscard]] inline int getVersion() const; //Removed - Tileson v1.3.0
 
             [[nodiscard]] inline std::vector<tson::Layer> &getLayers();
@@ -62,6 +65,7 @@ namespace tson
             //v1.2.0
             [[nodiscard]] inline int getCompressionLevel() const;
             inline DecompressorContainer *getDecompressors();
+            inline Project * getProject();
             inline Tileset * getTilesetByGid(uint32_t gid);
 
 
@@ -85,19 +89,24 @@ namespace tson
             Vector2i                               m_tileSize;          /*! 'tilewidth': and 'tileheight' of a map */
             std::vector<tson::Tileset>             m_tilesets;          /*! 'tilesets': Array of Tilesets */
             std::string                            m_type;              /*! 'type': map (since 1.0) */
+            tson::Vector2f                         m_parallaxOrigin;    /*! Tiled v1.8: parallax origin in pixels. Defaults to 0. */
             //int                                    m_version{};       /*! 'version': The JSON format version - Removed in Tileson v1.3.0*/
 
             ParseStatus                            m_status {ParseStatus::OK};
             std::string                            m_statusMessage {"OK"};
 
-            std::map<uint32_t, tson::Tile*>        m_tileMap;           /*! key: Tile ID. Value: Pointer to Tile*/
+            std::map<uint32_t, tson::Tile*>        m_tileMap{};           /*! key: Tile ID. Value: Pointer to Tile*/
 
             //v1.2.0
             int                                    m_compressionLevel {-1};  /*! 'compressionlevel': The compression level to use for tile layer
                                                                               *     data (defaults to -1, which means to use the algorithm default)
                                                                               *     Introduced in Tiled 1.3*/
-            tson::DecompressorContainer *          m_decompressors;
-            std::map<uint32_t, tson::Tile>         m_flaggedTileMap;    /*! key: Tile ID. Value: Tile*/
+            tson::DecompressorContainer *          m_decompressors {nullptr};
+            tson::Project *                        m_project {nullptr};
+            std::map<uint32_t, tson::Tile>         m_flaggedTileMap{};    /*! key: Tile ID. Value: Tile*/
+
+            std::string                            m_classType{};              /*! 'class': The class of this map (since 1.9, defaults to “”). */
+            std::shared_ptr<tson::TiledClass>      m_class {};
     };
 
     /*!
@@ -128,9 +137,9 @@ tson::Map::Map(tson::ParseStatus status, std::string description) : m_status {st
  * @param json A json object with the format of Map
  * @return true if all mandatory fields was found. false otherwise.
  */
-tson::Map::Map(IJson &json, tson::DecompressorContainer *decompressors)
+tson::Map::Map(IJson &json, tson::DecompressorContainer *decompressors, tson::Project *project)
 {
-    parse(json, decompressors);
+    parse(json, decompressors, project);
 }
 
 /*!
@@ -138,9 +147,10 @@ tson::Map::Map(IJson &json, tson::DecompressorContainer *decompressors)
  * @param json A json object with the format of Map
  * @return true if all mandatory fields was found. false otherwise.
  */
-bool tson::Map::parse(IJson &json, tson::DecompressorContainer *decompressors)
+bool tson::Map::parse(IJson &json, tson::DecompressorContainer *decompressors, tson::Project *project)
 {
     m_decompressors = decompressors;
+    m_project = project;
 
     bool allFound = true;
     if(json.count("compressionlevel") > 0)
@@ -161,6 +171,7 @@ bool tson::Map::parse(IJson &json, tson::DecompressorContainer *decompressors)
     if(json.count("tilewidth") > 0 && json.count("tileheight") > 0 )
         m_tileSize = {json["tilewidth"].get<int>(), json["tileheight"].get<int>()}; else allFound = false;
     if(json.count("type") > 0) m_type = json["type"].get<std::string>();                            //Optional
+    if(json.count("class") > 0) m_classType = json["class"].get<std::string>();                     //Optional
 
     //Removed - Changed from a float to string in Tiled v1.6, and old spec said int.
     //Reason for removal is that it seems to have no real use, as TiledVersion is stored in another variable.
@@ -181,9 +192,18 @@ bool tson::Map::parse(IJson &json, tson::DecompressorContainer *decompressors)
         auto &array = json.array("properties");
         std::for_each(array.begin(), array.end(), [&](std::unique_ptr<IJson> &item)
         {
-            m_properties.add(*item);
+            m_properties.add(*item, m_project);
         });
     }
+
+    tson::Vector2f parallaxOrigin {0.f, 0.f};
+    if(json.count("parallaxoriginx") > 0)
+        parallaxOrigin.x = json["parallaxoriginx"].get<float>();
+    if(json.count("parallaxoriginy") > 0)
+        parallaxOrigin.y = json["parallaxoriginy"].get<float>();
+
+    m_parallaxOrigin = parallaxOrigin;
+
     if(!createTilesetData(json))
         allFound = false;
 
@@ -202,7 +222,7 @@ bool tson::Map::createTilesetData(IJson &json)
     {
         //First created tileset objects
         auto &tilesets = json.array("tilesets");
-        std::for_each(tilesets.begin(), tilesets.end(), [&](std::unique_ptr<IJson> &item)
+        std::for_each(tilesets.begin(), tilesets.end(), [&](std::unique_ptr<IJson> &)
         {
             m_tilesets.emplace_back();
         });
@@ -229,7 +249,16 @@ void tson::Map::processData()
     m_tileMap.clear();
     for(auto &tileset : m_tilesets)
     {
-        std::for_each(tileset.getTiles().begin(), tileset.getTiles().end(), [&](tson::Tile &tile) { m_tileMap[tile.getGid()] = &tile; });
+          std::set<std::uint32_t> usedIds;
+          for(auto& tile : tileset.getTiles())
+          {
+              if (usedIds.count(tile.getGid()) != 0)
+              {
+                  continue;
+              }
+              usedIds.insert(tile.getGid());
+              m_tileMap[tile.getGid()] = &tile;
+          }
     }
     std::for_each(m_layers.begin(), m_layers.end(), [&](tson::Layer &layer)
     {
@@ -439,8 +468,8 @@ tson::Tileset *tson::Map::getTilesetByGid(uint32_t gid)
 {
     auto result = std::find_if(m_tilesets.begin(), m_tilesets.end(), [&](const tson::Tileset &tileset)
     {
-        int firstId = tileset.getFirstgid(); //First tile id of the tileset
-        int lastId = (firstId + tileset.getTileCount()) - 1;
+        auto const firstId = static_cast<uint32_t>(tileset.getFirstgid()); //First tile id of the tileset
+        auto const lastId =  static_cast<uint32_t>((firstId + tileset.getTileCount()) - 1);
 
         return (gid >= firstId && gid <= lastId);
     });
@@ -496,7 +525,25 @@ int tson::Map::getCompressionLevel() const
     return m_compressionLevel;
 }
 
+/*!
+ * New in Tiled v1.8
+ * Gets the parallax origin in pixels. Defaults to 0.
+ * @return A vector with the x and y values of the parallax origin.
+ */
+const tson::Vector2f &tson::Map::getParallaxOrigin() const
+{
+    return m_parallaxOrigin;
+}
 
+tson::Project *tson::Map::getProject()
+{
+    return m_project;
+}
+
+const std::string &tson::Map::getClassType() const
+{
+    return m_classType;
+}
 
 
 #endif //TILESON_MAP_HPP

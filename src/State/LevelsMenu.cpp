@@ -4,7 +4,7 @@
 #include <math.h> //log10
 #include <string>
 
-#define SCALE 3
+#define SCALE 2
 #define BG_WIDTH 265
 #define BG_HEIGHT 128
 
@@ -39,7 +39,7 @@ void LevelsMenu::init(){
 
 void LevelsMenu::update(){
     GameState::update();
-    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE)){
+    if (HandleEvent::is_key_pressed(SDLK_ESCAPE)){
         destroy();
     }
     for (int r = 0; r < LEVEL_ROWS; ++r){

@@ -3,6 +3,7 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL_ttf.h>
+#include <UI/Camera.hpp>
 
 class Game{
     private:
@@ -21,7 +22,9 @@ class Game{
         void clear();
         void render();
         void close();
-        
+
         static bool is_running();
+        static int get_screen_width();
+        static int get_screen_height();
         static void quit();
 };

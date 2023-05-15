@@ -6,8 +6,10 @@
 class TransformComponent : public Component{
     private:
         Vector2D position;
+        SDL_Rect hitboxInfo;
+        
     public:
-        SDL_Rect dst;
+        SDL_Rect dst, hitbox;
         double scale;
         
     public:
@@ -21,4 +23,8 @@ class TransformComponent : public Component{
 
         void move(Vector2D s);
         void move(double x, double y);
+        void moveX(double x);
+        void moveY(double Y);
+
+        void add_hitbox(int top, int bottom, int left, int right);
 };

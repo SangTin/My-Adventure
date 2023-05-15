@@ -1,0 +1,14 @@
+{ "columns":10,
+ "image":"data\\tilesets\\1 - Grassland\\Extra_plants (16 x 16).png",
+ "imageheight":80,
+ "imagewidth":160,
+ "margin":0,
+ "name":"Extra_plants (16 x 16)",
+ "spacing":0,
+ "tilecount":50,
+ "tiledversion":"1.10.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

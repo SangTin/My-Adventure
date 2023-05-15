@@ -52,7 +52,8 @@ obj/src/Core/FontManager.o: src/Core/FontManager.cpp \
  libraries/SDL2/include/SDL2/SDL_ttf.h libraries/SDL2/include/SDL2/SDL.h \
  header/Core/Base.hpp header/Core/TextureManager.hpp \
  libraries/SDL2/include/SDL2/SDL_image.h header/Core/Game.hpp \
- libraries/SDL2/include/SDL2/SDL_mixer.h
+ libraries/SDL2/include/SDL2/SDL_mixer.h header/UI/Camera.hpp \
+ header/Core/Vector2D.hpp
 header/Core/FontManager.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -111,3 +112,5 @@ header/Core/TextureManager.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
+header/UI/Camera.hpp:
+header/Core/Vector2D.hpp:

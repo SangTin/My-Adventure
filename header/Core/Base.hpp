@@ -2,15 +2,16 @@
 #include <cstddef> //size_t
 #include <SDL2/SDL.h>
 
-#define baseSquare 32
+#define baseSquare 16
 
 namespace Base{
     enum groupLabels : std::size_t{
         groupMap,
-        groupPlayers,
+        groupColliders,
         groupEnemies,
+        groupPlayers,
         groupButtons,
-        groupColliders
+        groupNan
     };
 
     enum mouseStats : std::size_t{

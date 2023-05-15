@@ -1,0 +1,19 @@
+{ "columns":1,
+ "image":"data\\tilesets\\Traps\\Spikes\\Idle.png",
+ "imageheight":16,
+ "imagewidth":16,
+ "margin":0,
+ "name":"Idle",
+ "spacing":0,
+ "tilecount":1,
+ "tiledversion":"1.10.0",
+ "tileheight":16,
+ "tiles":[
+        {
+         "id":0,
+         "type":"Spike"
+        }],
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

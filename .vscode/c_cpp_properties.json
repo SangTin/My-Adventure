@@ -5,6 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/libraries/SDL2/include",
+                "${workspaceFolder}/libraries/",
                 "${workspaceFolder}/header/"
             ],
             "defines": [

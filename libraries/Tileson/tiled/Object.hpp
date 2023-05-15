@@ -11,9 +11,12 @@
 #include "Text.hpp"
 
 #include "../common/Enums.hpp"
+#include <optional>
 
 namespace tson
 {
+    class TiledClass;
+    class Map;
     class Object
     {
         public:
@@ -32,8 +35,8 @@ namespace tson
 
 
             inline Object() = default;
-            inline explicit Object(IJson &json);
-            inline bool parse(IJson &json);
+            inline explicit Object(IJson &json, tson::Map *map);
+            inline bool parse(IJson &json, tson::Map *map);
 
             [[nodiscard]] inline ObjectType getObjectType() const;
             [[nodiscard]] inline bool isEllipse() const;
@@ -45,6 +48,8 @@ namespace tson
             [[nodiscard]] inline float getRotation() const;
             [[nodiscard]] inline const std::string &getTemplate() const;
             [[nodiscard]] inline const std::string &getType() const;
+            [[nodiscard]] inline const std::string &getClassType() const;
+            [[nodiscard]] inline tson::TiledClass *getClass(); /*! Declared in tileson_forward.hpp */
             [[nodiscard]] inline bool isVisible() const;
             [[nodiscard]] inline const Vector2i &getPosition() const;
 
@@ -84,6 +89,9 @@ namespace tson
 
             //v1.2.0-stuff
             tson::TileFlipFlags               m_flipFlags = TileFlipFlags::None;       /*! Resolved using bit 32, 31 and 30 from gid */
+
+            tson::Map *m_map {nullptr};
+            std::shared_ptr<tson::TiledClass> m_class {};
     };
 
     /*!
@@ -103,9 +111,9 @@ namespace tson
  * Parses a json Tiled object
  * @param json
  */
-tson::Object::Object(IJson &json)
+tson::Object::Object(IJson &json, tson::Map *map)
 {
-    parse(json);
+    parse(json, map);
 }
 
 /*!
@@ -114,8 +122,9 @@ tson::Object::Object(IJson &json)
  * @param json
  * @return true if all mandatory fields was found. false otherwise.
  */
-bool tson::Object::parse(IJson &json)
+bool tson::Object::parse(IJson &json, tson::Map *map)
 {
+    m_map = map;
     bool allFound = true;
 
     if(json.count("ellipse") > 0) m_ellipse = json["ellipse"].get<bool>(); //Optional
@@ -136,7 +145,11 @@ bool tson::Object::parse(IJson &json)
     if(json.count("point") > 0) m_point = json["point"].get<bool>(); //Optional
     if(json.count("rotation") > 0) m_rotation = json["rotation"].get<float>(); else allFound = false;
     if(json.count("template") > 0) m_template = json["template"].get<std::string>(); //Optional
-    if(json.count("type") > 0) m_type = json["type"].get<std::string>(); else allFound = false;
+
+    if(json.count("type") > 0) m_type = json["type"].get<std::string>();
+    else if(json.count("class") > 0) m_type = json["class"].get<std::string>(); //Tiled v1.9 renamed 'type' to 'class'
+    else allFound = false;
+
     if(json.count("visible") > 0) m_visible = json["visible"].get<bool>(); else allFound = false;
 
     if(json.count("width") > 0 && json.count("height") > 0)
@@ -146,9 +159,13 @@ bool tson::Object::parse(IJson &json)
 
     if(json.count("text") > 0)
     {
-        bool hasColor = json["text"].count("color") > 0;
-        tson::Color c = (hasColor) ? tson::Colori(json["text"]["color"].get<std::string>()) : tson::Colori();
-        m_text = {json["text"]["text"].get<std::string>(), json["text"]["wrap"].get<bool>(), c}; //Optional
+        //Old logic
+        //bool hasColor = json["text"].count("color") > 0;
+        //tson::Color c = (hasColor) ? tson::Colori(json["text"]["color"].get<std::string>()) : tson::Colori();
+        //m_text = {json["text"]["text"].get<std::string>(), json["text"]["wrap"].get<bool>(), c}; //Optional
+        m_text = tson::Text(json["text"]);
+        //
+
     }
 
     setObjectTypeByJson(json);
@@ -300,9 +317,20 @@ const std::string &tson::Object::getTemplate() const
 
 /*!
  * 'type': String assigned to type field in editor
+ * This was renamed to 'class' in Tiled v1.9
  * @return
  */
 const std::string &tson::Object::getType() const
+{
+    return m_type;
+}
+
+/*!
+ * 'class': String assigned to class field in editor
+ * This was renamed from 'type' to 'class' in Tiled v1.9
+ * @return
+ */
+const std::string &tson::Object::getClassType() const
 {
     return m_type;
 }

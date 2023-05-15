@@ -56,7 +56,8 @@ obj/src/ECS/Entity/ClickedButton.o: src/ECS/Entity/ClickedButton.cpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
  header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp header/UI/Mouse.hpp
+ header/ECS/Component/RigidBody.hpp \
+ header/ECS/Component/ColliderComponent.hpp header/UI/Mouse.hpp
 header/ECS/Entity/ClickedButton.hpp:
 header/ECS/Entity/Button.hpp:
 header/ECS/Component/Components.hpp:
@@ -120,4 +121,5 @@ header/ECS/Component/Sound.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 header/ECS/Component/AnimationComponent.hpp:
 header/ECS/Component/RigidBody.hpp:
+header/ECS/Component/ColliderComponent.hpp:
 header/UI/Mouse.hpp:

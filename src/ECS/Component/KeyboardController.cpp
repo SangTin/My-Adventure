@@ -7,11 +7,7 @@ void KeyboardController::update(){
         {
         case SDLK_UP:
         case SDLK_w:
-            keys[SDLK_w] = keys[SDLK_s] + 1;
-            break;
-        case SDLK_DOWN:
-        case SDLK_s:
-            keys[SDLK_s] = keys[SDLK_w] + 1;
+            if (!keys[SDLK_w]) keys[SDLK_w] = -1;
             break;
         case SDLK_LEFT:
         case SDLK_a:
@@ -30,10 +26,6 @@ void KeyboardController::update(){
         case SDLK_w:
             keys[SDLK_w] = 0;
             break;
-        case SDLK_DOWN:
-        case SDLK_s:
-            keys[SDLK_s] = 0;
-            break;
         case SDLK_LEFT:
         case SDLK_a:
             keys[SDLK_a] = 0;
@@ -44,4 +36,14 @@ void KeyboardController::update(){
             break;
         }
     }
+}
+
+Vector2D KeyboardController::get_direction(){
+    int x = 0, y = 0;
+    if (keys[SDLK_d] > keys[SDLK_a]) x = 1;
+    if (keys[SDLK_d] < keys[SDLK_a]) x = -1;
+    y = keys[SDLK_w];
+    if (keys[SDLK_w] < 0) keys[SDLK_w] = 1;
+
+    return Vector2D(x, y);
 }

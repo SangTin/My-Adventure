@@ -55,7 +55,8 @@ obj/src/ECS/Entity/Character.o: src/ECS/Entity/Character.cpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
  header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp
+ header/ECS/Component/RigidBody.hpp \
+ header/ECS/Component/ColliderComponent.hpp
 header/ECS/Entity/Character.hpp:
 header/ECS/Component/Components.hpp:
 header/ECS/ECS.hpp:
@@ -118,3 +119,4 @@ header/ECS/Component/Sound.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 header/ECS/Component/AnimationComponent.hpp:
 header/ECS/Component/RigidBody.hpp:
+header/ECS/Component/ColliderComponent.hpp:

@@ -4,3 +4,7 @@
 #include "Character.hpp"
 #include "Slider.hpp"
 #include "Player.hpp"
+#include "Tile.hpp"
+#include "HealthAndScore.hpp"
+#include "Enemy/Enemy.hpp"
+#include "Enemy/Trap.hpp"

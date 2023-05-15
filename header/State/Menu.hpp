@@ -6,8 +6,6 @@ class Menu : public GameState{
     private:
         Mix_Music* soundtrack;
         ClickedButton *Play, *Option, *Quit;
-
-        Player* testPlayer;
     public:
         void init() override;
         void update() override;

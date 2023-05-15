@@ -51,21 +51,24 @@ obj/src/Core/Game.o: src/Core/Game.cpp \
  libraries/SDL2/include/SDL2/SDL_misc.h \
  libraries/SDL2/include/SDL2/SDL_mixer.h \
  libraries/SDL2/include/SDL2/SDL_ttf.h header/Core/Game.hpp \
- libraries/SDL2/include/SDL2/SDL.h header/UI/Mouse.hpp \
- header/core/Base.hpp header/Core/Managers.hpp \
- header/Core/TextureManager.hpp header/Core/SoundManager.hpp \
- header/Core/StateManager.hpp header/State/GameState.hpp \
- header/ECS/Component/Components.hpp header/ECS/ECS.hpp \
- header/ECS/Component/TransformComponent.hpp header/Core/Vector2D.hpp \
+ libraries/SDL2/include/SDL2/SDL.h header/UI/Camera.hpp \
+ header/Core/Vector2D.hpp header/UI/Mouse.hpp header/core/Base.hpp \
+ header/Core/Managers.hpp header/Core/TextureManager.hpp \
+ header/Core/SoundManager.hpp header/Core/StateManager.hpp \
+ header/State/GameState.hpp header/ECS/Component/Components.hpp \
+ header/ECS/ECS.hpp header/ECS/Component/TransformComponent.hpp \
  header/ECS/Component/SpriteComponent.hpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp \
  header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp header/ECS/Entity/Entities.hpp \
- header/ECS/Entity/Button.hpp header/ECS/Entity/ClickedButton.hpp \
- header/ECS/Entity/Character.hpp header/ECS/Entity/Slider.hpp \
- header/ECS/Entity/Player.hpp header/Core/FontManager.hpp \
- header/Core/GameTimer.hpp
+ header/ECS/Component/RigidBody.hpp \
+ header/ECS/Component/ColliderComponent.hpp \
+ header/ECS/Entity/Entities.hpp header/ECS/Entity/Button.hpp \
+ header/ECS/Entity/ClickedButton.hpp header/ECS/Entity/Character.hpp \
+ header/ECS/Entity/Slider.hpp header/ECS/Entity/Player.hpp \
+ header/ECS/Entity/Tile.hpp header/ECS/Entity/HealthAndScore.hpp \
+ header/Core/FontManager.hpp header/ECS/Entity/Enemy/Enemy.hpp \
+ header/ECS/Entity/Enemy/Trap.hpp header/Core/GameTimer.hpp
 libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -121,6 +124,8 @@ libraries/SDL2/include/SDL2/SDL_mixer.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
+header/UI/Camera.hpp:
+header/Core/Vector2D.hpp:
 header/UI/Mouse.hpp:
 header/core/Base.hpp:
 header/Core/Managers.hpp:
@@ -131,17 +136,21 @@ header/State/GameState.hpp:
 header/ECS/Component/Components.hpp:
 header/ECS/ECS.hpp:
 header/ECS/Component/TransformComponent.hpp:
-header/Core/Vector2D.hpp:
 header/ECS/Component/SpriteComponent.hpp:
 header/ECS/Component/KeyboardController.hpp:
 header/ECS/Component/Sound.hpp:
 header/ECS/Component/AnimationComponent.hpp:
 header/ECS/Component/RigidBody.hpp:
+header/ECS/Component/ColliderComponent.hpp:
 header/ECS/Entity/Entities.hpp:
 header/ECS/Entity/Button.hpp:
 header/ECS/Entity/ClickedButton.hpp:
 header/ECS/Entity/Character.hpp:
 header/ECS/Entity/Slider.hpp:
 header/ECS/Entity/Player.hpp:
+header/ECS/Entity/Tile.hpp:
+header/ECS/Entity/HealthAndScore.hpp:
 header/Core/FontManager.hpp:
+header/ECS/Entity/Enemy/Enemy.hpp:
+header/ECS/Entity/Enemy/Trap.hpp:
 header/Core/GameTimer.hpp:

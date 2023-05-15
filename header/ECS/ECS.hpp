@@ -103,9 +103,11 @@ class EntityManager{
         std::array<std::vector<Entity*>, maxGroups> groupedEntities;
 
     public:
+        ~EntityManager();
         void update();
         void render();
         void refresh();
+        void clear();
         void add_to_group(Entity* mEntity, Group mGroup);
         std::vector<Entity*>& get_group(Group mGroup);
 

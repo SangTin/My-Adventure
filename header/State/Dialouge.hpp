@@ -22,22 +22,31 @@ class Dialouge : public GameState{
     private:
         Entity *dialog;
         TransformComponent* transform;
+        TTF_Text *message;
+        SDL_Rect textDst;
+
         ClickedButton *Yes, *No;
         Character* Cat;
-        std::string message;
         bool activated = false;
 
     public:
         Dialouge(const char* message){
-            this->message = message;
-        }
-
-        void init() override{
             dialog = &manager.add_entity<Entity>();
             transform = &dialog->add_component<TransformComponent>(0, -(BUTTON_HEIGHT * SCALE) / 2, BG_WIDTH, BG_HEIGHT, SCALE);
             transform->centered();
             dialog->add_component<SpriteComponent>("assets/img/states/Dialouge/Dialog.png", BG_WIDTH, BG_HEIGHT);
             
+            //Add message
+            const int textX = transform->dst.x + TEXTBOX_X * SCALE;
+            const int textY = transform->dst.y + TEXTBOX_Y * SCALE;
+            textDst = {textX, textY, TEXTBOX_WIDTH * SCALE, TEXTBOX_HEIGHT * SCALE};
+            this->message = FontManager::load_text(message, textDst.w, 15, NULL, {107, 75, 91, 255});
+        }
+        ~Dialouge(){
+            delete message;
+        }
+
+        void init() override{
             //Add yes-no buttons
             const int BUTTON_Y = transform->dst.y + transform->dst.h;
             const int YES_X = transform->dst.x + transform->dst.w - (BUTTON_WIDTH * SCALE) * 2;
@@ -55,17 +64,17 @@ class Dialouge : public GameState{
             const int CAT_X = transform->dst.x + 13 * SCALE;
             const int CAT_Y = transform->dst.y + 13 * SCALE;
             Cat = &manager.add_entity<Character>(CAT_X, CAT_Y, 32, 32, 3);
-            Cat->add_action("Idle", "assets/img/states/Dialouge/CatCharacter.png", 200);
-            Cat->play_action("Idle");
+            Cat->add_action("Idle", "assets/img/states/Dialouge/CatCharacter.png");
+            Cat->play_action("Idle", 200);
         }
 
         void update() override{
             GameState::update();
 
-            if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || No->is_pressed()){
+            if (HandleEvent::is_key_pressed(SDLK_ESCAPE) || No->is_pressed()){
                 destroy();
             }
-            if (HandleEvent::get_key_down(SDL_SCANCODE_RETURN) || Yes->is_pressed()){
+            if (HandleEvent::is_key_pressed(SDLK_RETURN) || Yes->is_pressed()){
                 StateManager::add_state<T>();
                 activated = true;
             }
@@ -73,11 +82,7 @@ class Dialouge : public GameState{
 
         void render() override{
             GameState::render();
-
-            const int textX = transform->dst.x + TEXTBOX_X * SCALE;
-            const int textY = transform->dst.y + TEXTBOX_Y * SCALE;
-            SDL_Rect textDst = {textX, textY, TEXTBOX_WIDTH * SCALE, TEXTBOX_HEIGHT * SCALE};
-            FontManager::draw_text(message, &textDst, 15, NULL, {107, 75, 91, 255});
+            FontManager::draw_text(message, &textDst);
         }
 
         inline bool is_activated(){

@@ -1,0 +1,245 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "map/Level_01.json",
+    "expandedProjectPaths": [
+        "tilesets/5 - Misc. universal tiles",
+        "map",
+        "tilesets",
+        "Seasonal Tilesets/1 - Grassland",
+        "Seasonal Tilesets",
+        "tilesets/Traps/Spikes",
+        "tilesets/2 - Autumn Forest",
+        "tilesets/Traps",
+        "tilesets/1 - Grassland",
+        "."
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "C:/Users/sang0/252937820_603760564280613_4363809553585451781_n.json": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/Blocks (16 x 16).json": {
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/Blocks (16 x 16).tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/sang0/Downloads/Flowers (16 x 16).json": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/Level-2.tmx": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 844,
+                "y": 938
+            }
+        },
+        "C:/Users/sang0/Downloads/Level3.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 814,
+                "y": 779
+            }
+        },
+        "C:/Users/sang0/Downloads/Terrain (16 x 16).json": {
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/Terrain (16 x 16).tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/sang0/Downloads/sang (1).json": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1180,
+                "y": 318
+            }
+        },
+        "C:/Users/sang0/Downloads/sang.json": {
+            "scale": 0.125,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1536,
+                "y": 1948
+            }
+        },
+        "C:/Users/sang0/Downloads/untitled.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 545.4545454545453,
+                "y": 328.78787878787887
+            }
+        },
+        "C:/Users/sang0/Downloads/untitled.tmx#252937820_603760564280613_4363809553585451781_n": {
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/untitled.tmx#Extra_plants (16 x 16)": {
+            "scaleInDock": 1
+        },
+        "C:/Users/sang0/Downloads/untitled.tmx#Grassland_entities (16 x 16)": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/sang0/Downloads/untitled.tmx#Terrain (16 x 16)": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/sang0/Grassland_entities (16 x 16).json": {
+            "scaleInDock": 1
+        },
+        "Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).json": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1.5
+        },
+        "Seasonal Tilesets/Terrain (16x16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Tileset/Terrain (16 x 16).json": {
+            "scaleInDock": 1
+        },
+        "map/Blocks (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map/Blocks (16 x 16).tsj": {
+            "scaleInDock": 1
+        },
+        "map/Level_01.json": {
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1433.5,
+                "y": 737.75
+            }
+        },
+        "map/Level_02.json": {
+            "expandedObjectLayers": [
+                3
+            ],
+            "scale": 0.33,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1209.090909090909,
+                "y": 101.5151515151515
+            }
+        },
+        "map/Level_03.json": {
+            "scale": 0.25,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2188,
+                "y": 942
+            }
+        },
+        "map/Level_04.json": {
+            "scale": 0.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 570,
+                "y": 375
+            }
+        },
+        "map/Terrain (16 x 16).json": {
+            "scaleInDock": 1
+        },
+        "map/Terrain (16 x 16).tsj": {
+            "scaleInDock": 1
+        },
+        "tilesets/1 - Grassland/Extra_plants (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/1 - Grassland/Grassland_entities (16 x 16).json": {
+            "scaleInDock": 1.5,
+            "scaleInEditor": 1
+        },
+        "tilesets/1 - Grassland/Terrain (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/2 - Autumn Forest/Terrain (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/5 - Misc. universal tiles/Blocks (16 x 16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/5 - Misc. universal tiles/Blocks (16 x 16).tsj": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/5 - Misc. universal tiles/Flowers (16 x 16).json": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/Terrain (16x16).json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/Traps/Spikes/Idle.json": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.exportedFilePath": "D:/Github/My Adventure/data/map",
+    "last.externalTilesetPath": "D:/Github/My Adventure/data/tilesets/5 - Misc. universal tiles",
+    "last.imagePath": "D:/Github/My Adventure/data/tilesets/Traps/Spikes",
+    "lastUsedTilesetExportFilter": "All Files (*)",
+    "map.fixedSize": true,
+    "map.height": 100,
+    "map.lastUsedExportFilter": "All Files (*)",
+    "map.lastUsedFormat": "json",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 100,
+    "openFiles": [
+        "map/Level_01.json"
+    ],
+    "project": "My Adventure.tiled-project",
+    "recentFiles": [
+        "map/Level_01.json",
+        "tilesets/Traps/Spikes/Idle.json",
+        "map/Level_02.json",
+        "map/Level_03.json",
+        "map/Level_04.json",
+        "tilesets/Terrain (16x16).json",
+        "tilesets/1 - Grassland/Terrain (16 x 16).json",
+        "tilesets/2 - Autumn Forest/Terrain (16 x 16).json",
+        "tilesets/5 - Misc. universal tiles/Blocks (16 x 16).json",
+        "tilesets/5 - Misc. universal tiles/Flowers (16 x 16).json",
+        "map/Blocks (16 x 16).json",
+        "C:/Users/sang0/Downloads/Level3.tmx"
+    ],
+    "resizeMap.removeObjects": false,
+    "tileset.lastUsedFilter": "JSON tileset files (*.tsj *.json)",
+    "tileset.lastUsedFormat": "json",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

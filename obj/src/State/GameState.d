@@ -55,10 +55,15 @@ obj/src/State/GameState.o: src/State/GameState.cpp \
  header/ECS/Component/KeyboardController.hpp \
  header/ECS/Component/Sound.hpp libraries/SDL2/include/SDL2/SDL_mixer.h \
  header/ECS/Component/AnimationComponent.hpp \
- header/ECS/Component/RigidBody.hpp header/ECS/Entity/Entities.hpp \
- header/ECS/Entity/Button.hpp header/ECS/Entity/ClickedButton.hpp \
- header/ECS/Entity/Character.hpp header/ECS/Entity/Slider.hpp \
- header/ECS/Entity/Player.hpp header/Core/StateManager.hpp
+ header/ECS/Component/RigidBody.hpp \
+ header/ECS/Component/ColliderComponent.hpp \
+ header/ECS/Entity/Entities.hpp header/ECS/Entity/Button.hpp \
+ header/ECS/Entity/ClickedButton.hpp header/ECS/Entity/Character.hpp \
+ header/ECS/Entity/Slider.hpp header/ECS/Entity/Player.hpp \
+ header/ECS/Entity/Tile.hpp header/ECS/Entity/HealthAndScore.hpp \
+ header/Core/FontManager.hpp libraries/SDL2/include/SDL2/SDL_ttf.h \
+ libraries/SDL2/include/SDL2/SDL.h header/ECS/Entity/Enemy/Enemy.hpp \
+ header/ECS/Entity/Enemy/Trap.hpp header/Core/StateManager.hpp
 header/State/GameState.hpp:
 header/ECS/Component/Components.hpp:
 header/ECS/ECS.hpp:
@@ -121,10 +126,18 @@ header/ECS/Component/Sound.hpp:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 header/ECS/Component/AnimationComponent.hpp:
 header/ECS/Component/RigidBody.hpp:
+header/ECS/Component/ColliderComponent.hpp:
 header/ECS/Entity/Entities.hpp:
 header/ECS/Entity/Button.hpp:
 header/ECS/Entity/ClickedButton.hpp:
 header/ECS/Entity/Character.hpp:
 header/ECS/Entity/Slider.hpp:
 header/ECS/Entity/Player.hpp:
+header/ECS/Entity/Tile.hpp:
+header/ECS/Entity/HealthAndScore.hpp:
+header/Core/FontManager.hpp:
+libraries/SDL2/include/SDL2/SDL_ttf.h:
+libraries/SDL2/include/SDL2/SDL.h:
+header/ECS/Entity/Enemy/Enemy.hpp:
+header/ECS/Entity/Enemy/Trap.hpp:
 header/Core/StateManager.hpp:

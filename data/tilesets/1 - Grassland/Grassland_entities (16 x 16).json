@@ -1,0 +1,14 @@
+{ "columns":20,
+ "image":"data\\tilesets\\1 - Grassland\\Grassland_entities (16 x 16).png",
+ "imageheight":112,
+ "imagewidth":320,
+ "margin":0,
+ "name":"Grassland_entities (16 x 16)",
+ "spacing":0,
+ "tilecount":140,
+ "tiledversion":"1.10.0",
+ "tileheight":16,
+ "tilewidth":16,
+ "type":"tileset",
+ "version":"1.10"
+}

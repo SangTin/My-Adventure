@@ -4,6 +4,7 @@
 #include <Core/GameTimer.hpp>
 #include <State/States.hpp>
 #include <Core/HandleEvent.hpp>
+#include <Core/Managers.hpp>
 
 const int FPS = 144;
 const int FPSTime = 1000.0 / FPS;
@@ -32,9 +33,13 @@ int main(int argc, char* argv[]){
         return -1;
     }
 
-    static Game window("My Adventure", baseSquare * 30, baseSquare * 20);
+    static Game window("My Adventure", 800, 480);
     StateManager::add_state<Menu>();
     Mix_AllocateChannels(255);
+    
+    //Set volume
+    SoundManager::set_music_volume(50);
+    SoundManager::set_sfx_volume(50);
 
     while (window.is_running()){
         HandleEvent::listen();

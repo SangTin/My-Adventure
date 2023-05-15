@@ -17,6 +17,7 @@
 namespace tson
 {
     class Tileset;
+    class TiledClass;
 
     class Tile
     {
@@ -28,17 +29,16 @@ namespace tson
             inline bool parse(IJson &json, tson::Tileset *tileset, tson::Map *map);
             inline bool parseId(IJson &json);
 
-
             [[nodiscard]] inline uint32_t getId() const;
-
             [[nodiscard]] inline const fs::path &getImage() const;
-
             [[nodiscard]] inline const Vector2i &getImageSize() const;
             [[nodiscard]] inline const std::string &getType() const;
+            [[nodiscard]] inline const std::string &getClassType() const;
+            [[nodiscard]] inline tson::TiledClass *getClass(); /*! Declared in tileson_forward.hpp */
 
             //[[nodiscard]] inline const std::vector<tson::Frame> &getAnimation() const;
             [[nodiscard]] inline tson::Animation &getAnimation();
-            [[nodiscard]] inline const Layer &getObjectgroup() const;
+            [[nodiscard]] inline Layer &getObjectgroup();
             [[nodiscard]] inline PropertyCollection &getProperties();
             [[nodiscard]] inline const std::vector<int> &getTerrain() const;
 
@@ -49,12 +49,14 @@ namespace tson
             //v1.2.0-stuff
             inline void setProperties(const tson::PropertyCollection &properties);
 
-            inline tson::Tileset * getTileset() const;
-            inline tson::Map * getMap() const;
-            inline const tson::Rect &getDrawingRect() const;
+            [[nodiscard]] inline tson::Tileset * getTileset() const;
+            [[nodiscard]] inline tson::Map * getMap() const;
+            [[nodiscard]] inline const tson::Rect &getDrawingRect() const;
+            [[nodiscard]] inline const Rect &getSubRectangle() const;
+
             inline const tson::Vector2f getPosition(const std::tuple<int, int> &tileDataPos);
             inline const tson::Vector2i getPositionInTileUnits(const std::tuple<int, int> &tileDataPos);
-            inline const tson::Vector2i getTileSize() const;                       /*! Declared in tileson_forward.hpp */
+            [[nodiscard]] inline const tson::Vector2i getTileSize() const;                       /*! Declared in tileson_forward.hpp */
 
             [[nodiscard]] inline TileFlipFlags getFlipFlags() const;
             inline bool hasFlipFlags(TileFlipFlags flags);
@@ -80,10 +82,12 @@ namespace tson
             tson::Tileset *             m_tileset;                                   /*! A pointer to the tileset where this Tile comes from */
             tson::Map *                 m_map;                                       /*! A pointer to the map where this tile is contained */
             tson::Rect                  m_drawingRect;                               /*! A rect that shows which part of the tileset that is used for this tile */
+            tson::Rect                  m_subRect;                                   /*! Tiled 1.9: Contains the newly added sub-rectangle variables: 'x', 'y', 'width' and 'height'*/
             tson::TileFlipFlags         m_flipFlags = TileFlipFlags::None;           /*! Resolved using bit 32, 31 and 30 from gid */
             inline void performDataCalculations();                                   /*! Declared in tileson_forward.hpp - Calculate all the values used in the tile class. */
             inline void manageFlipFlagsByIdThenRemoveFlags(uint32_t &id);
             friend class Layer;
+            std::shared_ptr<tson::TiledClass> m_class {};
     };
 
     /*!
@@ -151,10 +155,18 @@ bool tson::Tile::parse(IJson &json, tson::Tileset *tileset, tson::Map *map)
     bool allFound = parseId(json);
 
     if(json.count("type") > 0) m_type = json["type"].get<std::string>(); //Optional
+    else if(json.count("class") > 0) m_type = json["class"].get<std::string>(); //Tiled v1.9 renamed 'type' to 'class'
+
     if(json.count("objectgroup") > 0) m_objectgroup = tson::Layer(json["objectgroup"], m_map); //Optional
 
     if(json.count("imagewidth") > 0 && json.count("imageheight") > 0)
         m_imageSize = {json["imagewidth"].get<int>(), json["imageheight"].get<int>()}; //Optional
+
+    m_subRect = {0,0, m_imageSize.x, m_imageSize.y};
+    if(json.count("x") > 0) m_subRect.x = json["x"].get<int>(); //Optional
+    if(json.count("y") > 0) m_subRect.y = json["y"].get<int>(); //Optional
+    if(json.count("width") > 0) m_subRect.width = json["width"].get<int>(); //Optional
+    if(json.count("height") > 0) m_subRect.height = json["height"].get<int>(); //Optional
 
     //More advanced data
     if(json.count("animation") > 0 && json["animation"].isArray())
@@ -211,9 +223,20 @@ const tson::Vector2i &tson::Tile::getImageSize() const
 
 /*!
  * 'type': The type of the tile (optional)
+ * This was renamed to 'class' in Tiled v1.9
  * @return
  */
 const std::string &tson::Tile::getType() const
+{
+    return m_type;
+}
+
+/*!
+  * 'class': String assigned to class field in editor (optional)
+ * This was renamed from 'type' to 'class' in Tiled v1.9
+ * @return
+ */
+const std::string &tson::Tile::getClassType() const
 {
     return m_type;
 }
@@ -231,7 +254,7 @@ tson::Animation &tson::Tile::getAnimation()
  * 'objectgroup': Layer with type objectgroup (optional)
  * @return
  */
-const tson::Layer &tson::Tile::getObjectgroup() const
+tson::Layer &tson::Tile::getObjectgroup()
 {
     return m_objectgroup;
 }
@@ -344,6 +367,15 @@ uint32_t tson::Tile::getGid() const
 void tson::Tile::setProperties(const tson::PropertyCollection &properties)
 {
     m_properties = properties;
+}
+
+/*!
+ * Tiled 1.9: Contains the newly added sub-rectangle variables: 'x', 'y', 'width' and 'height'
+ * @return A tson::Rect with the 'x', 'y', 'width' and 'height' values
+ */
+const tson::Rect &tson::Tile::getSubRectangle() const
+{
+    return m_subRect;
 }
 
 

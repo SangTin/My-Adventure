@@ -54,7 +54,7 @@ obj/src/ECS/Component/TransformComponent.o: \
  header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h \
  libraries/SDL2/include/SDL2/SDL_mixer.h \
- libraries/SDL2/include/SDL2/SDL_ttf.h
+ libraries/SDL2/include/SDL2/SDL_ttf.h header/UI/Camera.hpp
 header/ECS/Component/TransformComponent.hpp:
 header/ECS/ECS.hpp:
 header/Core/Base.hpp:
@@ -114,3 +114,4 @@ libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
+header/UI/Camera.hpp:

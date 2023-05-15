@@ -19,12 +19,13 @@ namespace tson
             inline explicit PropertyCollection(std::string id);
 
             inline tson::Property * add(const tson::Property &property);
-            inline tson::Property * add(IJson &json);
+            inline tson::Property * add(IJson &json, tson::Project *project = nullptr);
             inline tson::Property * add(const std::string &name, const std::any &value, tson::Type type);
 
             inline void remove(const std::string &name);
 
             inline void setValue(const std::string &name, const std::any &value);
+            inline void setProperty(const std::string &name, const tson::Property &value);
             inline void setId(const std::string &id);
 
             inline bool hasProperty(const std::string &name);
@@ -60,9 +61,9 @@ tson::Property *tson::PropertyCollection::add(const tson::Property &property)
     return &m_properties[property.getName()];
 }
 
-tson::Property *tson::PropertyCollection::add(IJson &json)
+tson::Property *tson::PropertyCollection::add(IJson &json, tson::Project *project)
 {
-    tson::Property property = tson::Property(json);
+    tson::Property property = tson::Property(json, project);
     std::string name = property.getName();
     m_properties[name] = std::move(property);
     return &m_properties[name];
@@ -89,6 +90,16 @@ void tson::PropertyCollection::setValue(const std::string &name, const std::any 
 {
     if(m_properties.count(name) > 0)
         m_properties[name].setValue(value);
+}
+
+/*!
+ * Overwrites the current property if it exists, or adds it if it doesn't.
+ * @param name
+ * @param value
+ */
+void tson::PropertyCollection::setProperty(const std::string &name, const tson::Property &value)
+{
+    m_properties[name] = value;
 }
 
 void tson::PropertyCollection::setId(const std::string &id)

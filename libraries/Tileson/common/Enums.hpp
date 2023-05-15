@@ -20,7 +20,10 @@ namespace tson
             Int = 3, /*! int */
             Boolean = 4, /*! bool */
             Float = 5, /*! float */
-            String = 6 /*! string */
+            String = 6, /*! string */
+            Class = 7, /*! class */
+            Enum = 8,  /*! 'string' or 'int' with a value in 'propertyType' */
+            Object = 9 /*! object */
     };
 
     /*!
@@ -93,6 +96,47 @@ namespace tson
             BottomLeft = 7,     //bottomleft
             Bottom = 8,         //bottom
             BottomRight = 9     //bottomright
+    };
+
+    /*!
+     * Text.hpp - TextAlignment
+     */
+    enum class TextAlignment : uint8_t
+    {
+        Unresolved = 0,
+        Left = 1,           //left
+        Center = 2,         //center
+        Right = 3,          //right
+        Justify = 4,        //justify
+        Top = 5,            //top
+        Bottom = 6          //bottom
+    };
+
+    /*!
+     * Tileset.hpp - TileRenderSize - From Tiled v1.9
+     */
+    enum class TileRenderSize : uint8_t
+    {
+        Undefined = 0,
+        Tile = 1,  //tile (default)
+        Grid = 2   //grid
+    };
+
+    /*!
+     * Tileset.hpp - FillMode - From Tiled v1.9
+     */
+    enum class FillMode : uint8_t
+    {
+        Undefined = 0,
+        Stretch = 1,            //stretch (default)
+        PreserveAspectFit = 2   //preserve-aspect-fit
+    };
+
+    enum class EnumStorageType : uint8_t
+    {
+        Unspecified = 0,
+        Int = 1,
+        String = 2
     };
 
     ENABLE_BITMASK_OPERATORS(TileFlipFlags)

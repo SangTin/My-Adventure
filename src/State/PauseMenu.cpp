@@ -33,7 +33,7 @@ void PauseMenu::update(){
     if (Home->is_pressed()) home();
     if (Option->is_pressed()) option();
     if (Quit->is_pressed()) quit();
-    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || Continue->is_pressed()) play();
+    if (HandleEvent::is_key_pressed(SDLK_ESCAPE) || Continue->is_pressed()) play();
 }
 
 void PauseMenu::play(){

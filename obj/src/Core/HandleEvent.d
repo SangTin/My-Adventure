@@ -52,7 +52,8 @@ obj/src/Core/HandleEvent.o: src/Core/HandleEvent.cpp \
  libraries/SDL2/include/SDL2/SDL_image.h \
  libraries/SDL2/include/SDL2/SDL.h \
  libraries/SDL2/include/SDL2/SDL_mixer.h \
- libraries/SDL2/include/SDL2/SDL_ttf.h
+ libraries/SDL2/include/SDL2/SDL_ttf.h header/UI/Camera.hpp \
+ header/Core/Vector2D.hpp
 header/Core/HandleEvent.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -109,3 +110,5 @@ libraries/SDL2/include/SDL2/SDL_image.h:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_mixer.h:
 libraries/SDL2/include/SDL2/SDL_ttf.h:
+header/UI/Camera.hpp:
+header/Core/Vector2D.hpp:

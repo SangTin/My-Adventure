@@ -1,8 +1,9 @@
 #include <ECS/Component/AnimationComponent.hpp>
 #include <Core/TextureManager.hpp>
 
-AnimationComponent::AnimationComponent(int width, int height){
+AnimationComponent::AnimationComponent(int width, int height, bool toCamera){
     src = {0, 0, width, height};
+    this->toCamera = toCamera;
 }
 
 AnimationComponent::~AnimationComponent(){
@@ -22,27 +23,29 @@ void AnimationComponent::update(){
 
 void AnimationComponent::render(){
     if (!texture) return;
-    TextureManager::draw(texture, &src, &transform->dst, flip);
+    TextureManager::draw(texture, &src, &transform->dst, toCamera, flip);
 }
 
-void AnimationComponent::add_animation(const std::string name, SDL_Texture* texture, int fSpeed){
+void AnimationComponent::add_animation(const std::string name, SDL_Texture* texture){
     int textureWidth;
     SDL_QueryTexture(texture, NULL, NULL, &textureWidth, NULL);
     int frames = textureWidth / src.w;
-    animations.emplace(name, new Animation(texture, frames, fSpeed));
+    animations.emplace(name, new Animation(texture, frames));
 }
 
-void AnimationComponent::add_animation(const std::string name, const char* path, int fSpeed){
+void AnimationComponent::add_animation(const std::string name, const char* path){
     SDL_Texture* texture = TextureManager::load_texture(path);
-    add_animation(name, texture, fSpeed);
+    add_animation(name, texture);
 }
 
-void AnimationComponent::play(const std::string name){
+void AnimationComponent::play(const std::string name, int fSpeed, int flip){
     if (animations.find(name) == animations.end()){
         std::cout << "Invalid animation: " << name << '\n';
         return;
     }
     texture = animations[name]->texture;
-    frameSpeed = animations[name]->frameSpeed;
+    frameSpeed = fSpeed;
     frameCount = animations[name]->frameCount;
+    if (flip != -1) this->flip = static_cast<SDL_RendererFlip>(flip);
+    if (src.x / src.w + 1 > frameCount) src.x = 0;
 }

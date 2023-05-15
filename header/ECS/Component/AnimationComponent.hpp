@@ -8,11 +8,11 @@
 
 struct Animation{
     SDL_Texture* texture;
-    int frameCount, frameSpeed;
+    int frameCount;
 
     Animation(){}
-    Animation(SDL_Texture* mTexture, int frames, int speed)
-        : texture(mTexture), frameCount(frames), frameSpeed(speed){}
+    Animation(SDL_Texture* mTexture, int frames)
+        : texture(mTexture), frameCount(frames){}
     ~Animation(){
         SDL_DestroyTexture(texture);
     }
@@ -25,12 +25,12 @@ class AnimationComponent : public SpriteComponent{
         int frameSpeed, frameCount;
 
     public:
-        AnimationComponent(int width, int height);
+        AnimationComponent(int width, int height, bool toCamera = false);
         virtual ~AnimationComponent();
         void init() override;
         void update() override;
         void render() override;
-        void add_animation(const std::string name, SDL_Texture* texture, int fSpeed = 150);
-        void add_animation(const std::string name, const char* path, int fSpeed = 150);
-        void play(const std::string name);
+        void add_animation(const std::string name, SDL_Texture* texture);
+        void add_animation(const std::string name, const char* path);
+        void play(const std::string name, int fSpeed, int flip = -1);
 };

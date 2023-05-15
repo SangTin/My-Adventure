@@ -6,6 +6,7 @@
 #include <UI/Mouse.hpp>
 #include <Core/Managers.hpp>
 #include <Core/GameTimer.hpp>
+#include <UI/Camera.hpp>
 
 int Game::width, Game::height;
 double Game::scale;
@@ -32,8 +33,8 @@ Game::Game(const char* title, int width, int height) {
     font = FontManager::load_font("assets/font/prstartk.ttf");
 
     running = true;
-    width = width;
-    height = height;
+    this->width = width;
+    this->height = height;
     center = {width / 2, height / 2};
 }
 
@@ -72,6 +73,13 @@ void Game::quit(){
 //Return game's status (running or not)
 bool Game::is_running(){
     return running;
+}
+int Game::get_screen_width(){
+    return width;
+}
+
+int Game::get_screen_height(){
+    return height;
 }
 
 //Close the game and release resources

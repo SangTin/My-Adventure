@@ -65,20 +65,20 @@ namespace tson
                         a = 1.f;
                     }
                 }
-                else
+                else if constexpr (std::is_same<T, uint8_t>::value)
                 {
                     if (color.size() == 9)
                     {
-                        a = std::stoi(color.substr(1, 2), nullptr, 16);
-                        r = std::stoi(color.substr(3, 2), nullptr, 16);
-                        g = std::stoi(color.substr(5, 2), nullptr, 16);
-                        b = std::stoi(color.substr(7, 2), nullptr, 16);
+                        a = static_cast<uint8_t>(std::stoi(color.substr(1, 2), nullptr, 16));
+                        r = static_cast<uint8_t>(std::stoi(color.substr(3, 2), nullptr, 16));
+                        g = static_cast<uint8_t>(std::stoi(color.substr(5, 2), nullptr, 16));
+                        b = static_cast<uint8_t>(std::stoi(color.substr(7, 2), nullptr, 16));
                     }
                     else if (color.size() == 7)
                     {
-                        r = std::stoi(color.substr(1, 2), nullptr, 16);
-                        g = std::stoi(color.substr(3, 2), nullptr, 16);
-                        b = std::stoi(color.substr(5, 2), nullptr, 16);
+                        r = static_cast<uint8_t>(std::stoi(color.substr(1, 2), nullptr, 16));
+                        g = static_cast<uint8_t>(std::stoi(color.substr(3, 2), nullptr, 16));
+                        b = static_cast<uint8_t>(std::stoi(color.substr(5, 2), nullptr, 16));
                         a = 255;
                     }
                 }
@@ -114,7 +114,10 @@ namespace tson
     tson::Colori Color<T>::asInt()
     {
         if constexpr (std::is_same<T, float>::value)
-            return tson::Colori((float) r * 255, (float) g * 255, (float) b * 255, (float) a * 255);
+            return tson::Colori(static_cast<std::uint8_t>((float) r * 255),
+                              static_cast<std::uint8_t>((float) g * 255),
+                              static_cast<std::uint8_t>((float) b * 255),
+                              static_cast<std::uint8_t>((float) a * 255));
         else
             *this;
     }

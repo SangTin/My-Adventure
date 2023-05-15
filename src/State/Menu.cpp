@@ -20,16 +20,10 @@ void Menu::init(){
         b->add_sound("Hover", "assets/sound/menu/MenuHover.mp3");
         b->add_sound("Pressed", "assets/sound/menu/MenuPressed.mp3");
     }
-    
-    //Set volume
-    SoundManager::set_music_volume(50);
-    SoundManager::set_sfx_volume(50);
 
     //Soundtrack: Valorant-Bazooka-Badger-Theme.mp3
     soundtrack = SoundManager::load_music("assets/sound/menu/Valorant-Bazooka-Badger-Theme.mp3");
     SoundManager::play_music(soundtrack);
-
-    testPlayer = &manager.add_entity<Player>(0, 0, 32, 32, 2);
 }
 
 void Menu::update(){
@@ -37,7 +31,7 @@ void Menu::update(){
     GameState::update();
     if (Play->is_pressed()) play();
     if (Option->is_pressed()) option();
-    if (HandleEvent::get_key_down(SDL_SCANCODE_ESCAPE) || Quit->is_pressed()) quit();
+    if (HandleEvent::is_key_pressed(SDLK_ESCAPE) || Quit->is_pressed()) quit();
 
 }
 

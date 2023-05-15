@@ -12,6 +12,7 @@ void StateManager::refresh(){
         return true;
     }),
         std::end(states));
+    for (auto& s : states) s->refresh();
 }
 
 void StateManager::update(){
