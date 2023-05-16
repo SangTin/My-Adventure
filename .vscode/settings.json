@@ -62,7 +62,8 @@
         "valarray": "cpp",
         "filesystem": "cpp",
         "charconv": "cpp",
-        "*.d": "cpp"
+        "*.d": "cpp",
+        "optional": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled"
 }

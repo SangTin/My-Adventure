@@ -93,11 +93,11 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/tilesets\/5 - Misc. universal tiles\/Blocks (16 x 16).json"
+         "source":"..\/tilesets\/Level 3\/Blocks (16 x 16).json"
         }, 
         {
          "firstgid":16,
-         "source":"..\/tilesets\/2 - Autumn Forest\/Terrain (16 x 16).json"
+         "source":"..\/tilesets\/Level 3\/Terrain (16 x 16).json"
         }],
  "tilewidth":16,
  "type":"map",

@@ -164,15 +164,15 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/tilesets\/Terrain (16x16).json"
+         "source":"..\/tilesets\/Level 4\/Terrain (16x16).json"
         }, 
         {
          "firstgid":243,
-         "source":"..\/tilesets\/5 - Misc. universal tiles\/Flowers (16 x 16).json"
+         "source":"..\/tilesets\/Level 4\/Flowers (16 x 16).json"
         }, 
         {
          "firstgid":247,
-         "source":"..\/tilesets\/1 - Grassland\/Grassland_entities (16 x 16).json"
+         "source":"..\/tilesets\/Level 4\/Grassland_entities (16 x 16).json"
         }],
  "tilewidth":16,
  "type":"map",

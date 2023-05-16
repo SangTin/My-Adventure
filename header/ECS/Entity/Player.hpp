@@ -16,6 +16,8 @@ class Player : public Character{
         
         Vector2D m_lastPosition;
         int health = 3, score = 0;
+
+        double damageTake = 0;
     public:
         ColliderComponent* collider;
 

@@ -10,6 +10,7 @@
 #define JUMP_FORCE (rigidbody->cal_jumpForce())
 #define RUN_FORCE 3
 #define WALK_FORCE (RUN_FORCE * 2 / 3)
+#define DAMAGE_TIME 20
 
 Player::Player(int x, int y, int width, int height, double scale){
     transform = &add_component<TransformComponent>(x, y, width, height, scale);
@@ -41,6 +42,8 @@ void Player::init(){
 
 void Player::update(){
     delta_time = GameTimer::get_DT();
+    if (damageTake > 0) damageTake += delta_time;
+    if (damageTake >= DAMAGE_TIME) damageTake = 0;
     action = false;
     Character::update();
     Vector2D keyboardForce = keyboard->get_direction();
@@ -101,10 +104,19 @@ void Player::update(){
         play_action("Idle", 200);
         m_WalkTime = WALK_TIME;
     }
+    if (damageTake > 0) play_action("Hit", 150);
     m_Origin.x = transform->dst.x + transform->dst.w / 2.0;
     m_Origin.y = transform->dst.y + transform->dst.h / 2.0;
 }
 
 Vector2D *Player::get_origin(){
     return &m_Origin;
+}
+
+void Player::take_damage(){
+    if (damageTake > 0) return;
+    damageTake += delta_time;
+    --health;
+    m_Jumped = true;
+    m_JumpTime = JUMP_TIME;
 }

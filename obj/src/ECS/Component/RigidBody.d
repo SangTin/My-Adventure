@@ -88,8 +88,11 @@ obj/src/ECS/Component/RigidBody.o: src/ECS/Component/RigidBody.cpp \
  libraries/Tileson/tiled/Frame.hpp libraries/Tileson/tiled/Animation.hpp \
  libraries/Tileson/tiled/../objects/Rect.hpp \
  libraries/Tileson/tiled/Terrain.hpp libraries/Tileson/tiled/Grid.hpp \
+ libraries/Tileson/tiled/TiledEnum.hpp \
+ libraries/Tileson/tiled/TiledClass.hpp \
  libraries/Tileson/tiled/Project.hpp libraries/Tileson/tiled/World.hpp \
  libraries/Tileson/tiled/../objects/WorldMapData.hpp \
+ libraries/Tileson/tiled/../objects/ProjectPropertyTypes.hpp \
  libraries/Tileson/tiled/../objects/ProjectFolder.hpp \
  libraries/Tileson/tiled/../objects/ProjectData.hpp \
  libraries/Tileson/common/tileson_forward.hpp
@@ -193,9 +196,12 @@ libraries/Tileson/tiled/Animation.hpp:
 libraries/Tileson/tiled/../objects/Rect.hpp:
 libraries/Tileson/tiled/Terrain.hpp:
 libraries/Tileson/tiled/Grid.hpp:
+libraries/Tileson/tiled/TiledEnum.hpp:
+libraries/Tileson/tiled/TiledClass.hpp:
 libraries/Tileson/tiled/Project.hpp:
 libraries/Tileson/tiled/World.hpp:
 libraries/Tileson/tiled/../objects/WorldMapData.hpp:
+libraries/Tileson/tiled/../objects/ProjectPropertyTypes.hpp:
 libraries/Tileson/tiled/../objects/ProjectFolder.hpp:
 libraries/Tileson/tiled/../objects/ProjectData.hpp:
 libraries/Tileson/common/tileson_forward.hpp:

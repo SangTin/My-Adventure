@@ -8,6 +8,7 @@ class Tile : public Entity{
         SpriteComponent* sprite;
         ColliderComponent* collider;
     public:
-        void init(SDL_Texture* texture, int x, int y, SDL_Rect src, int tileID, double scale = 2);
+        Tile() = default;
+        Tile(SDL_Texture* texture, int x, int y, SDL_Rect src, int tileID, double scale = 2);
         void add_map_collider();
 };

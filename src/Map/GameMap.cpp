@@ -72,20 +72,14 @@ void GameMap::load_layer_data(std::string name){
             SDL_Texture* texture = tilesetTextures[tileset->getName()];
             Tile *tileEntity;
             if (name == "Traps"){
-                tileEntity = &manager->add_entity<Trap>();
+                tileEntity = &manager->add_entity<Trap>(texture, x, y, tileSrc, cur_tile, TILE_SCALE);
             }
             else{
-                tileEntity = &manager->add_entity<Tile>();
+                tileEntity = &manager->add_entity<Tile>(texture, x, y, tileSrc, cur_tile, TILE_SCALE);
             }
-            tileEntity->init(texture, x, y, tileSrc, cur_tile, TILE_SCALE);
             if (name == "Platform"){
                 tileEntity->add_map_collider();
             }
         }
     }
-}
-
-
-void Player::take_damage(){
-    --health;
 }

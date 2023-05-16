@@ -192,19 +192,19 @@
  "tilesets":[
         {
          "firstgid":1,
-         "source":"..\/tilesets\/1 - Grassland\/Terrain (16 x 16).json"
+         "source":"..\/tilesets\/Level 1\/Terrain (16 x 16).json"
         }, 
         {
          "firstgid":171,
-         "source":"..\/tilesets\/1 - Grassland\/Grassland_entities (16 x 16).json"
+         "source":"..\/tilesets\/Level 1\/Grassland_entities (16 x 16).json"
         }, 
         {
          "firstgid":311,
-         "source":"..\/tilesets\/Terrain (16x16).json"
+         "source":"..\/tilesets\/Level 1\/Terrain (16x16).json"
         }, 
         {
          "firstgid":553,
-         "source":"..\/tilesets\/Traps\/Spikes\/Idle.json"
+         "source":"..\/tilesets\/Level 1\/Spike.json"
         }],
  "tilewidth":16,
  "type":"map",
