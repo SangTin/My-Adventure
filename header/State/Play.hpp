@@ -22,4 +22,5 @@ class Play : public GameState{
 
     private:
         void pause();
+        void gameover();
 };

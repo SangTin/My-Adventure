@@ -7,3 +7,4 @@
 #include "Play.hpp"
 #include "PauseMenu.hpp"
 #include "QuitGame.hpp"
+#include "GameOver.hpp"

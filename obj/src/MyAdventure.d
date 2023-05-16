@@ -113,9 +113,9 @@ obj/src/MyAdventure.o: src/MyAdventure.cpp header/Core/Base.hpp \
  libraries/Tileson/tiled/../objects/ProjectFolder.hpp \
  libraries/Tileson/tiled/../objects/ProjectData.hpp \
  libraries/Tileson/common/tileson_forward.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp header/Core/HandleEvent.hpp \
- header/Core/Managers.hpp header/Core/TextureManager.hpp \
- header/Core/SoundManager.hpp
+ header/State/QuitGame.hpp header/State/GameOver.hpp \
+ header/Core/HandleEvent.hpp header/Core/Managers.hpp \
+ header/Core/TextureManager.hpp header/Core/SoundManager.hpp
 header/Core/Base.hpp:
 libraries/SDL2/include/SDL2/SDL.h:
 libraries/SDL2/include/SDL2/SDL_main.h:
@@ -256,6 +256,7 @@ libraries/Tileson/tiled/../objects/ProjectData.hpp:
 libraries/Tileson/common/tileson_forward.hpp:
 header/State/PauseMenu.hpp:
 header/State/QuitGame.hpp:
+header/State/GameOver.hpp:
 header/Core/HandleEvent.hpp:
 header/Core/Managers.hpp:
 header/Core/TextureManager.hpp:

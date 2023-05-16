@@ -30,7 +30,6 @@ void Heart::render(){
 //Start class HealthAndScore
 HealthAndScore::HealthAndScore(double scale){
     const int SCREEN_WIDTH = Game::get_screen_width();
-    const int SCREEN_HEIGHT = Game::get_screen_height();
     const int BOARD_X = SCREEN_WIDTH - 10 - BOARD_WIDTH * scale;
     const int BOARD_Y = 10;
     transform = &add_component<TransformComponent>(BOARD_X, BOARD_Y, BOARD_WIDTH, BOARD_HEIGHT, scale);

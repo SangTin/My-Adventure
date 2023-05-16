@@ -3,18 +3,18 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "map/Level_02.json",
+    "activeFile": "",
     "expandedProjectPaths": [
-        "Seasonal Tilesets",
-        "tilesets/Traps/Spikes",
         "tilesets/Traps",
+        "tilesets/2 - Autumn Forest",
+        "map",
+        "Seasonal Tilesets",
         "tilesets",
         "Seasonal Tilesets/1 - Grassland",
-        "tilesets/Seasonal Tilesets",
         "tilesets/1 - Grassland",
         "tilesets/5 - Misc. universal tiles",
-        "map",
-        "tilesets/2 - Autumn Forest"
+        "tilesets/Seasonal Tilesets",
+        "tilesets/Traps/Spikes"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -268,7 +268,6 @@
     "map.tileWidth": 16,
     "map.width": 100,
     "openFiles": [
-        "map/Level_02.json"
     ],
     "project": "My Adventure.tiled-project",
     "recentFiles": [

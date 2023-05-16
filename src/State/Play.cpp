@@ -52,6 +52,7 @@ void Play::update(){
     Camera::update();
     map.update();
     if (HandleEvent::lose_focus() || HandleEvent::is_key_pressed(SDLK_ESCAPE) || Pause->is_pressed()) pause();
+    if (player->is_dead()) gameover();
 }
 
 void Play::render(){
@@ -61,4 +62,9 @@ void Play::render(){
 
 void Play::pause(){
     StateManager::add_state<PauseMenu>();
+}
+
+void Play::gameover(){
+    SoundManager::stop_music();
+    StateManager::add_state<GameOver>();
 }

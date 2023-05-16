@@ -110,7 +110,7 @@ obj/src/State/QuitGame.o: src/State/QuitGame.cpp header/State/States.hpp \
  libraries/Tileson/tiled/../objects/ProjectFolder.hpp \
  libraries/Tileson/tiled/../objects/ProjectData.hpp \
  libraries/Tileson/common/tileson_forward.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp header/Core/Game.hpp \
+ header/State/QuitGame.hpp header/State/GameOver.hpp header/Core/Game.hpp \
  libraries/SDL2/include/SDL2/SDL_image.h header/UI/Camera.hpp
 header/State/States.hpp:
 header/Core/StateManager.hpp:
@@ -248,6 +248,7 @@ libraries/Tileson/tiled/../objects/ProjectData.hpp:
 libraries/Tileson/common/tileson_forward.hpp:
 header/State/PauseMenu.hpp:
 header/State/QuitGame.hpp:
+header/State/GameOver.hpp:
 header/Core/Game.hpp:
 libraries/SDL2/include/SDL2/SDL_image.h:
 header/UI/Camera.hpp:

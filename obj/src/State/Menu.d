@@ -110,10 +110,10 @@ obj/src/State/Menu.o: src/State/Menu.cpp header/State/States.hpp \
  libraries/Tileson/tiled/../objects/ProjectFolder.hpp \
  libraries/Tileson/tiled/../objects/ProjectData.hpp \
  libraries/Tileson/common/tileson_forward.hpp header/State/PauseMenu.hpp \
- header/State/QuitGame.hpp header/Core/SoundManager.hpp \
- header/Core/HandleEvent.hpp header/Core/Game.hpp \
- libraries/SDL2/include/SDL2/SDL_image.h header/UI/Camera.hpp \
- header/State/Dialouge.hpp header/UI/Mouse.hpp
+ header/State/QuitGame.hpp header/State/GameOver.hpp \
+ header/Core/SoundManager.hpp header/Core/HandleEvent.hpp \
+ header/Core/Game.hpp libraries/SDL2/include/SDL2/SDL_image.h \
+ header/UI/Camera.hpp header/State/Dialouge.hpp header/UI/Mouse.hpp
 header/State/States.hpp:
 header/Core/StateManager.hpp:
 header/State/GameState.hpp:
@@ -250,6 +250,7 @@ libraries/Tileson/tiled/../objects/ProjectData.hpp:
 libraries/Tileson/common/tileson_forward.hpp:
 header/State/PauseMenu.hpp:
 header/State/QuitGame.hpp:
+header/State/GameOver.hpp:
 header/Core/SoundManager.hpp:
 header/Core/HandleEvent.hpp:
 header/Core/Game.hpp:

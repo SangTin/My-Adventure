@@ -18,6 +18,8 @@ class Player : public Character{
         int health = 3, score = 0;
 
         double damageTake = 0;
+        double deadTime = 0;
+        bool isDead = false;
     public:
         ColliderComponent* collider;
 
@@ -33,4 +35,5 @@ class Player : public Character{
         inline int get_health() { return health; }
         inline int get_score() { return score; }
         inline SDL_Rect get_hitbox() { return transform->hitbox; }
+        inline bool is_dead() { return isDead; }
 };
