@@ -1,6 +1,8 @@
 # My Adventure
 
-![](./assets/img/GameScreen.png)
+![HomeScreen](./assets/img/HomeScreen.png)
+
+![InGameScreen](./assets/img/InGameScreen.png)
 
 ## Ngôn ngữ: C++, SDL
 ## Cách tải và chạy game

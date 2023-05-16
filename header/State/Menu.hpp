@@ -4,11 +4,15 @@
 
 class Menu : public GameState{
     private:
+        Entity *background;
+        TransformComponent* transform;
+
         Mix_Music* soundtrack;
         ClickedButton *Play, *Option, *Quit;
     public:
         void init() override;
         void update() override;
+        void render() override;
         void destroy() override;
 
     private:

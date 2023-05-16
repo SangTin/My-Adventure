@@ -3,8 +3,15 @@
 #include <Core/HandleEvent.hpp>
 #include <State/Dialouge.hpp>
 
+#define SCALE 1
+#define BG_WIDTH 1920
+#define BG_HEIGHT 1080
+
 void Menu::init(){
     StateManager::clear_before();
+    background = &manager.add_entity<Entity>();
+    transform = &background->add_component<TransformComponent>(0, 0, Game::get_screen_width(), Game::get_screen_height(), SCALE);
+    background->add_component<SpriteComponent>("assets/img/states/Menu/GameBackground.png", BG_WIDTH, BG_HEIGHT);
 
     Play = &manager.add_entity<ClickedButton>("assets/img/button/BigPlayButton.png", 0, 0, 92, 29, 2);
     Play->centered();
@@ -32,7 +39,12 @@ void Menu::update(){
     if (Play->is_pressed()) play();
     if (Option->is_pressed()) option();
     if (HandleEvent::is_key_pressed(SDLK_ESCAPE) || Quit->is_pressed()) quit();
+}
 
+void Menu::render(){
+    background->render();
+    if (hidden) return;
+    manager.render();
 }
 
 void Menu::destroy(){
